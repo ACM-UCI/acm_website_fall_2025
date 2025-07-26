@@ -5,13 +5,13 @@ import Board from "./pages/Board";
 import Practice from "./pages/Practice";
 import Compete from "./pages/Compete";
 
-import NavBar from "./extra/Navbar"
+import Layout from "./extra/Layout"
 import { Routes, Route } from "react-router";
 
 export default function App() {
   return (
     <Routes>
-    <Route path="/" element={<NavBar />}>
+    <Route path="/" element={<Layout />}>
       <Route index element={<Home/>}></Route>
       <Route path="board" element={<Board/>}/>
       <Route path="learn" element={<Learn/>}/>

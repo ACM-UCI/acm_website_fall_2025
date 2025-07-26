@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import discordLogo from '/navbar/discord.svg';
 import githubLogo from '/navbar/github.svg';
 
-import { Outlet } from "react-router";
+// this is taken from old website
 
 export default function NavBar() {
   return (
@@ -13,7 +13,7 @@ export default function NavBar() {
       <Container>
         <Navbar.Brand href="#" className="d-flex align-items-center">
   <img
-    src="acm_logo.svg"
+    src="/navbar/acm-uci.svg"
     alt="ACM Logo"
     style={{ height: '10vh', marginRight: '10px', verticalAlign: 'middle' }}
   />
@@ -44,7 +44,6 @@ export default function NavBar() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    <Outlet></Outlet>
     </div>
   );
 }

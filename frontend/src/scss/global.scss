@@ -2,22 +2,73 @@
     width: 10vw; 
 }
 
-.font-size-1 {
-    font-size: 10vw; 
-}
-
-.font-size-4 {
-    font-size: 1vw; 
+@for $i from 1 through 40 {
+  .font-size-#{$i} {
+    font-size: #{$i * 0.5}vw;
+  }
 }
 
 .vertical_spacer {
-    width: 2vw;
-    height: 4vw; 
-    background-color: grey;
+  width: 2vw;
+  height: 4vw;
+  background-color: grey;
+}
+.vertical_spacer_col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; 
 }
 
 .programming_language_image {
-    width: 10vw; 
+    width: 6vw; 
+}
+
+$default-bg-color: yellow !default;
+$default-margin: 1% !default;
+$default-padding: 2% !default;
+
+@mixin section-wrapper($bg-color: $default-bg-color, $margin: $default-margin, $padding: $default-padding) {
+  background-color: $bg-color;
+  margin: $margin;
+  padding: $padding;
+}
+
+.banner_header_wrapper {
+    @include section-wrapper(grey, 1%, 2%);
+}
+
+.what_is_acm_wrapper {
+    @include section-wrapper(lightpink, 1%, 2%);
+}
+
+.mission_statement_wrapper {
+  @include section-wrapper();
+}
+
+.club_preview_wrapper {
+  @include section-wrapper(lightblue, 1.5%, 0.5%);
+}
+
+.cp_newcomer_wrapper {
+  @include section-wrapper(palegreen, 0.5%, 1%);
+}
+
+.cp_practice_wrapper {
+  @include section-wrapper(pink, 0.5%, 1%);
+}
+
+.cp_compete_wrapper {
+  @include section-wrapper(orange, 0.5%, 1%);
+}
+
+.our_team_wrapper {
+    @include section-wrapper(lavender, 1%, 2%);
+}
+
+.footer_wrapper {
+    background-color: cornflowerblue;
+    height: 10vh;
 }
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss"
