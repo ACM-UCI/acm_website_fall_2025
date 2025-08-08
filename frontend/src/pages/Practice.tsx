@@ -5,6 +5,7 @@ import { Accordion, Row, Col } from 'react-bootstrap';
 import {client} from "../sanity/client";
 import { useState, useEffect} from "react"
 import type { WeeklyProblems, Presentation, Problem } from '../extra/types.ts';
+import "../scss/global.scss"
 
 function getCurrentQuarterAndYear() {
   //const now = new Date();
