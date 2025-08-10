@@ -6,6 +6,14 @@ import {client} from "../sanity/client";
 import { useState, useEffect} from "react"
 import type { WeeklyProblems, Presentation, Problem } from '../extra/types.ts';
 import "../scss/global.scss"
+import imageUrlBuilder from "@sanity/image-url";
+
+const builder = imageUrlBuilder(client);
+
+function urlFor(source: any) {
+  return builder.image(source);
+}
+
 
 function getCurrentQuarterAndYear() {
   //const now = new Date();
@@ -20,6 +28,27 @@ function getCurrentQuarterAndYear() {
 
   return { year, quarter };
 }
+
+function PracticeBanner() {
+    let practice_doodle = "/practice/practice_doodle.jpg";
+    let practice_banner_main_header = "New practice problems and presentations at every meetings"
+    let practice_banner_sub_header = "Check out Try your hand at the easy problems, then see how you fare with the harder ones! AGENTS of ACM below, and if you’re interested, get involved and join the team!"
+
+  return (
+<div className="practice_banner_wrapper d-flex justify-content-center align-items-center">
+  <Row className="align-items-center">
+    <Col xs={12} md={4} className="d-flex justify-content-center">
+      <img src={practice_doodle} className="subpage_banner_image"></img>
+    </Col>
+    <Col xs={12} md={8} className="text-left">
+      <h1 className="font-size-10">{practice_banner_main_header}</h1>
+      <h1 className="font-size-6">{practice_banner_sub_header}</h1>
+    </Col>
+  </Row>
+</div>
+  )
+}
+
 
 export default function Practice() {
   const [weeklyProblems, setWeeklyProblems] = useState<WeeklyProblems | null>(null);
@@ -46,6 +75,8 @@ export default function Practice() {
       setPresentations(pres);
     }
 
+
+
     fetchData();
   }, []);
 
@@ -57,29 +88,36 @@ export default function Practice() {
   
 
   return (
+              <div>
+                <PracticeBanner></PracticeBanner>
+                <div className='practice_dropdown'>
     <Accordion defaultActiveKey="0">
       {weeks.map((weekNum, idx) => {
         const problems = weeklyProblems[`week${weekNum}`] || [];
         const presentation = presentations.find((p: any) => p.week === weekNum);
 
         return (
+          <div className='practice_week'>
           <Accordion.Item eventKey={String(idx)} key={weekNum}>
-            <Accordion.Header>Week {weekNum}</Accordion.Header>
+            <Accordion.Header>Week {weekNum}: {presentation?.title}</Accordion.Header>
             <Accordion.Body>
               <Row className="mb-3">
                 <Col>
                   <h5>Topic Description</h5>
                   <p>{presentation?.description|| "No description"}</p>
-                </Col>
-                <Col>
-                  <h5>Presentation</h5>
-                  {presentation?.url ? (
+                                  {presentation?.url ? (
                     <a href={presentation.url} target="_blank" rel="noreferrer">
-                      {presentation.title}
+                      VIEW SLIDES
                     </a>
                   ) : (
                     "No presentation"
                   )}
+
+                </Col>
+                <Col>
+                  <h5>Presentation</h5>
+                         <img src={presentation?.image ? (urlFor(presentation.image).width(200).height(200).url()) : ("")}
+        alt={presentation?.title}></img>
                 </Col>
               </Row>
 
@@ -95,8 +133,11 @@ export default function Practice() {
               </ul>
             </Accordion.Body>
           </Accordion.Item>
+        </div>
         );
       })}
     </Accordion>
+    </div>
+    </div>
   );
 }

@@ -18,20 +18,16 @@ export default defineType({
             validation: (Rule) => Rule.required()
         }),
         defineField({
-            name: "image",
-            title: "Image",
-            type: "image",
-            options: {
-                hotspot: true
-            },
-            validation: (Rule) => Rule.required()
-        }),
-        defineField({
             name: "url",
             title: "URL",
             type: "url",
             validation: (Rule) => Rule.required()
         }),
+            defineField({
+      name: 'image',
+      type: 'image',
+      title: 'Slide Preview Image',
+    }),
         defineField({
             name: "quarter",
             title: "Quarter",

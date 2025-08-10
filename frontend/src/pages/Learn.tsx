@@ -47,6 +47,29 @@ int main() {
     `,
 };
 
+
+
+function LearnBanner() {
+
+let learn_doodle = "/learn/learn_doodle.jpg";
+let learn_banner_main_header = "Competitive programming is a sport anyone can do";
+let learn_banner_sub_header = "You don’t need fancy software or crazy math skills to succeed - just personal drive and a bit of guidance!";
+
+return (
+  <div className="learn_banner_wrapper d-flex justify-content-center align-items-center">
+    <Row className="align-items-center">
+      <Col xs={12} md={4} className="d-flex justify-content-center">
+        <img src={learn_doodle} className="subpage_banner_image"></img>
+      </Col>
+      <Col xs={12} md={8} className="text-left">
+        <h1 className="font-size-10">{learn_banner_main_header}</h1>
+        <h1 className="font-size-6">{learn_banner_sub_header}</h1>
+      </Col>
+    </Row>
+  </div>
+);
+}
+
 export default function Learn() {
     const [language, setLanguage] = useState<Language>(Language.Python);
 
@@ -67,19 +90,23 @@ export default function Learn() {
     return (
         <>
             <title>New Members | ACM @ UCI</title>
+            <LearnBanner></LearnBanner>
             <Container className="p-5">
                 <Row className="gx-5">
                     <h2 className="mb-4">What Is Competitive Programming?</h2>
                     <Col>
-                        <div >
-                            <div >
+                        <div className="window">
+                            <div className="top">
                                 <span
+                                    className="dot"
                                     style={{ background: "#ED594A" }}
                                 />
                                 <span
+                                    className="dot"
                                     style={{ background: "#FDD800" }}
                                 />
                                 <span
+                                    className="dot"
                                     style={{ background: "#5AC05A" }}
                                 />
                             </div>
@@ -114,6 +141,7 @@ export default function Learn() {
                             <Image
                                 src={vscodeLogo}
                                 alt="Visual Studio Code logo"
+                                className="IDE_image"
                             />
                         </Link>
                     </Col>
@@ -122,6 +150,7 @@ export default function Learn() {
                             <Image
                                 src={vimLogo}
                                 alt="Vim logo"
+                                className="IDE_image"
                             />
                         </Link>
                     </Col>
@@ -130,6 +159,7 @@ export default function Learn() {
                             <Image
                                 src={neovimLogo}
                                 alt="Neovim logo"
+                                className="IDE_image"
                             />
                         </Link>
                     </Col>
@@ -138,6 +168,7 @@ export default function Learn() {
                             <Image
                                 src={emacsLogo}
                                 alt="Emacs logo"
+                                className="IDE_image"
                             />
                         </Link>
                     </Col>
@@ -155,7 +186,7 @@ export default function Learn() {
                     Most programming languages have functions that read in
                     input, including Python and C++.
                 </p>
-                <div >
+                <div className="chooseLanguage">
                     <Button
                         type="button"
                         variant="dark"
@@ -171,7 +202,7 @@ export default function Learn() {
                         C++
                     </Button>
                 </div>
-                <div >
+                <div className="codeBlock"> 
                     <CodeBlock
                         text={stdinCode[language]}
                         language={language}

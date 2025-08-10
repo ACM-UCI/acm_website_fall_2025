@@ -3,7 +3,53 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import imageUrlBuilder from "@sanity/image-url";
-import {client} from "../sanity/client";
+import { client } from "../sanity/client";
+
+function BoardBanner() {
+  let board_doodle = "/board/board_doodle.jpg";
+  let board_banner_main_header = "ACM @ UCI wouldn’t be possible without our hardworking board members"
+  let board_banner_sub_header = "Check out the AGENTS of ACM below, and if you’re interested, get involved and join the team!"
+
+  return (
+    <div className="board_banner_wrapper d-flex justify-content-center align-items-center">
+      <Row className="align-items-center">
+          <Col xs={12} md={4} className="d-flex justify-content-center">
+            <img src={board_doodle} className="subpage_banner_image"></img>
+          </Col>
+          <Col xs={12} md={8} className="text-left">
+            <h1 className="font-size-10">{board_banner_main_header}</h1>
+            <h1 className="font-size-6">{board_banner_sub_header}</h1>
+          </Col>
+        </Row>
+    </div>
+  )
+}
+
+function ThankYouMessage() {
+  let confetti_right = "/board/confetti_right.png";
+  let confetti_left = "/board/confetti_left.png";
+  let thank_you_message = "Thank you to all past board members for building the foundation of ACM @ UCI and to any and all individuals who managed to stop by - even for just a single meeting!";
+
+  return (
+
+  <div className="thank_you_message my-5">
+    <Row className="align-items-center">
+
+          <Col xs={12} md={1} className="d-flex justify-content-center">
+            <img src={confetti_left}/> 
+          </Col>
+          <Col xs={12} md={10} className="text-center">
+            <h1 className="font-size-4">{thank_you_message}</h1>
+            
+          </Col>
+
+          <Col xs={12} md={1} className="d-flex justify-content-center">
+            <img src={confetti_right}/> 
+          </Col>
+        </Row>
+  </div>
+);
+}
 
 const builder = imageUrlBuilder(client);
 
@@ -19,7 +65,7 @@ type BoardMember = {
   group: "executive" | "support" | "advisory";
 };
 
-const Board = () => {
+export default function Board() {
   const [members, setMembers] = useState<BoardMember[]>([]);
 
   useEffect(() => {
@@ -56,12 +102,15 @@ const Board = () => {
   ].map((pos) => members.find((m) => m.position === pos));
 
   return (
-    <Container>
+    <div>
+      <BoardBanner></BoardBanner>
+      <Container>
       <Executive {...executive} />
       <Supporting members={support} />
       <Advisory members={advisory} />
       <ThankYouMessage />
-    </Container>
+      </Container>
+    </div>
   );
 };
 
@@ -85,7 +134,7 @@ const MemberCard = ({
         </Col>
         <Col>
           <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-            <img style={{width: "1vw"}} src="/board/linkedin.png"/>
+            <img style={{ width: "1vw" }} src="/board/linkedin.png" />
           </a>
         </Col>
       </Row>
@@ -104,7 +153,7 @@ const Executive = ({
 }) => (
   <div className="executive_wrapper my-5">
     <Col>
-      <h1>Executive Board</h1>
+      <h1 className="font-size-10">Executive Board</h1>
       <div className="executive_board mt-4">
         <Row>
           <Col><MemberCard member={president} /></Col>
@@ -119,7 +168,7 @@ const Executive = ({
 const Supporting = ({ members }: { members: (BoardMember | undefined)[] }) => (
   <div className="supporting_wrapper my-5">
     <Col>
-      <h1>Supporting Staff</h1>
+      <h1 className="font-size-10">Supporting Staff</h1>
       <div className="supporting_staff mt-4">
         <Row>
           {members.map((m, i) => (
@@ -134,7 +183,7 @@ const Supporting = ({ members }: { members: (BoardMember | undefined)[] }) => (
 const Advisory = ({ members }: { members: (BoardMember | undefined)[] }) => (
   <div className="advisory_wrapper my-5">
     <Col>
-      <h1>Advisors</h1>
+      <h1 className="font-size-10">Advisors</h1>
       <div className="advisors mt-4">
         <Row>
           {members.map((m, i) => (
@@ -146,10 +195,4 @@ const Advisory = ({ members }: { members: (BoardMember | undefined)[] }) => (
   </div>
 );
 
-const ThankYouMessage = () => (
-  <div className="thank_you_message my-5">
-    <h1>Thank You</h1>
-  </div>
-);
 
-export default Board;
