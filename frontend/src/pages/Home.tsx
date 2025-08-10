@@ -7,8 +7,8 @@ import "../scss/global.scss"
 function TopBanner() {
 
   // definitely going to replace with custom image 
-  let top_banner_images: any = ["/home/top_banner/anteater.png", "/home/top_banner/chili.webp",
-    "/home/top_banner/pizza.png", "/home/top_banner/banana.png",
+  let top_banner_images: any = ["/home/top_banner/anteater.png", "/home/top_banner/chili.png",
+    "/home/top_banner/pizza.png", "/home/top_banner/acm_monster.png", "/home/top_banner/banana.png",
     "/home/top_banner/computer.png", "/home/top_banner/squirrel.png"]
 
   return (
@@ -20,7 +20,6 @@ function TopBanner() {
         </Col>
       ))}
     </Row>
-    <p> Going to make a custom image... ew </p>
     </div>
   )
 }

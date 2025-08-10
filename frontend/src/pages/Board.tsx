@@ -32,7 +32,7 @@ function ThankYouMessage() {
 
   return (
 
-  <div className="thank_you_message my-5">
+  <div className="thank_you_message">
     <Row className="align-items-center">
 
           <Col xs={12} md={1} className="d-flex justify-content-center">

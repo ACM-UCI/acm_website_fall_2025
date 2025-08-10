@@ -58,13 +58,14 @@ let learn_banner_sub_header = "You don’t need fancy software or crazy math ski
 return (
   <div className="learn_banner_wrapper d-flex justify-content-center align-items-center">
     <Row className="align-items-center">
-      <Col xs={12} md={4} className="d-flex justify-content-center">
-        <img src={learn_doodle} className="subpage_banner_image"></img>
-      </Col>
       <Col xs={12} md={8} className="text-left">
         <h1 className="font-size-10">{learn_banner_main_header}</h1>
         <h1 className="font-size-6">{learn_banner_sub_header}</h1>
       </Col>
+      <Col xs={12} md={4} className="d-flex justify-content-center">
+        <img src={learn_doodle} className="subpage_banner_image"></img>
+      </Col>
+      
     </Row>
   </div>
 );

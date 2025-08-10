@@ -1,5 +1,10 @@
 .top_banner_image {
-    width: 10vw; 
+    width: 11vw; 
+    transition: transform 0.6s ease-in-out;
+}
+
+.top_banner_image:hover {
+  transform: rotate(360deg);
 }
 
 .subpage_banner_image {
@@ -138,6 +143,10 @@ $default-padding: 2% !default;
 
 .our_team_wrapper {
     @include section-wrapper(lavender, 1%, 2%);
+}
+
+.thank_you_message {
+  @include section-wrapper(white, 1%, 2%);
 }
 
 .footer_wrapper {
