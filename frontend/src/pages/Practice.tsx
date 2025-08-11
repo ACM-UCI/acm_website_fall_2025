@@ -32,7 +32,7 @@ function getCurrentQuarterAndYear() {
 function PracticeBanner() {
     let practice_doodle = "/practice/practice_doodle.jpg";
     let practice_banner_main_header = "New practice problems and presentations at every meetings"
-    let practice_banner_sub_header = "Check out Try your hand at the easy problems, then see how you fare with the harder ones! AGENTS of ACM below, and if you’re interested, get involved and join the team!"
+    let practice_banner_sub_header = "Try your hand at the easy problems, then see how you fare with the harder ones!"
 
   return (
 <div className="practice_banner_wrapper d-flex justify-content-center align-items-center">

@@ -114,31 +114,54 @@ export default function Board() {
   );
 };
 
-const MemberCard = ({
+function MemberCard({
   member,
 }: {
   member: BoardMember | undefined;
-}) => {
+}) {
+
   if (!member) return null;
+
+// Helper to determine size
+const getImageSize = (position: any) => {
+  const key = position.toLowerCase();
+  if (["president", "internal-vp", "external-vp"].includes(key)) {
+    return 0.25;
+  }
+  if (["webmaster", "treasurer", "secretary", "events-coordinator"].includes(key)) {
+    return 0.2;
+  }
+  if (["faculty-advisor", "advisor-of-competition"].includes(key)) {
+    return 0.35;
+  }
+  return 0.2; // default size
+};
+
+
+const sizeFactor = getImageSize(member.position);
+const imageWidth = Math.round(window.innerWidth * sizeFactor);
+const imageHeight = Math.round(window.innerHeight * sizeFactor);
+
   return (
     <div className={member.position.replace(/\s+/g, "_")}>
-      <img
-        src={urlFor(member.image).width(200).height(200).url()}
-        alt={member.name}
-        className="img-fluid mb-2"
-      />
-      <Row>
-        <Col>
-          <h1>{member.name}</h1>
-          <h1 style={{ fontSize: "1.2rem" }}>{member.position.replace(/-/g, " ")}</h1>
-        </Col>
-        <Col>
-          <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-            <img style={{ width: "1vw" }} src="/board/linkedin.png" />
-          </a>
-        </Col>
-      </Row>
-    </div>
+  <img
+    src={urlFor(member.image).width(imageWidth).height(imageHeight).url()}
+    alt={member.name}
+    className="img-fluid mb-2"
+  />
+  <Row>
+    <Col>
+      <h1>{member.name}</h1>
+      <h1 style={{ fontSize: "1.2rem" }}>{member.position.replace(/-/g, " ")}</h1>
+    </Col>
+    <Col>
+      <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+        <img style={{ width: "3vw" }} src="/board/linkedin.png" />
+      </a>
+    </Col>
+  </Row>
+</div>
+
   );
 };
 

@@ -11,12 +11,12 @@ export default function Footer() {
     return(
     <div>
       <Row className="align-items-center footer_wrapper">
-        <Col xs={12} md={2} className="d-flex justify-content-center">
+        <Col xs={12} md={4} className="justify-content-left">
           <h1 className="font-size-3">© 2025 ACM@UCI</h1>
         </Col>
-        <Col xs={12} md={8} >
+        <Col xs={12} md={4} >
         </Col>
-        <Col xs={12} md={2} className="d-flex justify-content-center">
+        <Col xs={12} md={4} className="d-flex justify-content-end">
                               <Nav.Link target="_blank" href="https://discord.gg/MCtKPxC">
                 <img
                     src={discordLogo}
@@ -28,7 +28,7 @@ export default function Footer() {
                 <img
                     src={instagramLogo}
                     alt="bleh"
-                    width="20"
+                    width="24"
                 />
             </Nav.Link>
                                           <Nav.Link target="_blank" href="https://discord.gg/MCtKPxC">
@@ -38,7 +38,7 @@ export default function Footer() {
                     width="20"
                 />
             </Nav.Link>
-          <h1 className="font-size-3">CONTACT US</h1>
+          <h1 className="font-size-3">&nbsp;&nbsp;CONTACT US</h1>
 
         </Col>
       </Row>

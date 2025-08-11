@@ -1,6 +1,14 @@
+body {
+  overflow-x: hidden; 
+}
+
 .top_banner_image {
     width: 11vw; 
     transition: transform 0.6s ease-in-out;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 .top_banner_image:hover {
@@ -52,7 +60,7 @@ $default-padding: 2% !default;
 }
 
 .board_banner_wrapper {
-  @include section-wrapper(grey, 1%, 2%);
+  @include section-wrapper(grey, 0, 2%);
   height: 70vh;
 }
 
@@ -65,17 +73,17 @@ $default-padding: 2% !default;
 }
 
 .practice_banner_wrapper {
-    @include section-wrapper(grey, 3%, 2%);
+    @include section-wrapper(grey, 0, 2%);
   height: 70vh;
 }
 
 .learn_banner_wrapper {
-    @include section-wrapper(grey, 3%, 2%);
+    @include section-wrapper(grey, 0, 2%);
   height: 50vh;
 }
 
 .compete_banner_wrapper {
-  @include section-wrapper(grey, 1%, 2%);
+  @include section-wrapper(grey, 0, 2%);
   height: 50vh;
 }
 
@@ -114,44 +122,48 @@ $default-padding: 2% !default;
   width: 80vw; 
 }
 .banner_header_wrapper {
-    @include section-wrapper(grey, 1%, 2%);
+    @include section-wrapper(#1C2C52, 0%, 2%);
 }
 
 .what_is_acm_wrapper {
-    @include section-wrapper(lightpink, 1%, 2%);
+    @include section-wrapper(#8599C7, 3%, 2%);
 }
 
 .mission_statement_wrapper {
-  @include section-wrapper();
+  @include section-wrapper(white, );
 }
 
 .club_preview_wrapper {
-  @include section-wrapper(lightblue, 1.5%, 0.5%);
+  @include section-wrapper(white, 0, 0.5%);
 }
 
 .cp_newcomer_wrapper {
-  @include section-wrapper(palegreen, 0.5%, 1%);
+  @include section-wrapper(#F0F0F0, 0.5%, 1%);
 }
 
 .cp_practice_wrapper {
-  @include section-wrapper(pink, 0.5%, 1%);
+  @include section-wrapper(#DEDEDE, 0.5%, 1%);
 }
 
 .cp_compete_wrapper {
-  @include section-wrapper(orange, 0.5%, 1%);
+  @include section-wrapper(#CCCCCC, 0.5%, 1%);
 }
 
 .our_team_wrapper {
-    @include section-wrapper(lavender, 1%, 2%);
+    @include section-wrapper(white, 1%, 2%);
 }
 
 .thank_you_message {
   @include section-wrapper(white, 1%, 2%);
 }
 
+.navbar {
+  background-color: #E6DFDC;
+}
 .footer_wrapper {
-    background-color: cornflowerblue;
+    background-color: #B3CBF5;
     height: 10vh;
+    align-items: center;
 }
 
 

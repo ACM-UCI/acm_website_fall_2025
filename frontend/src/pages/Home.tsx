@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button"
 
 import "../scss/global.scss"
 
@@ -32,7 +33,7 @@ function WhatIsACM() {
   let acm_with_balloons = "/home/what_is_acm/acm_with_balloons.png"
 
   return (
-    <div className="what_is_acm_wrapper">
+    <div className="what_is_acm_wrapper shadow rounded">
     <Row className="align-items-center">
       <Col xs={12} md={8} className="text-start">
         <h1 className="font-size-16">{what_is_acm}</h1>
@@ -104,34 +105,34 @@ function ClubPreview() {
 
  // maybe today - images and text defined in a separate document (then just import all and like src=images.newcomer_img, etc)
  let newcomers_img = "/home/club_preview/newcomers.jpg"
- let newcomers_text = "To start competitive programming, begin by learning a programming language, preferably C++, Java, or Python.   READ MORE "
+ let newcomers_text = "To start competitive programming, begin by learning a programming language, preferably C++, Java, or Python."
 
  let leetcode_img = "/home/club_preview/leetcode.webp"
  let codeforces_img = "/home/club_preview/codeforces.png"
- let practice_text = "Practice on platforms like Codeforces, LeetCode, or CodeChef, focusing on solving problems of increasing difficulty.   SEE MORE"
+ let practice_text = "Practice on platforms like Codeforces, LeetCode, or CodeChef, focusing on solving problems of increasing difficulty."
 
   let compete_img = "/home/club_preview/compete.png"
-  let compete_text = "Mastering fundamental data structures and algorithms is crucial, along with practicing regularly and participating in contests.   LEARN MORE "
+  let compete_text = "Mastering fundamental data structures and algorithms is crucial, along with practicing regularly and participating in contests."
 
    return (
     <div className="club_preview_wrapper">
       <h1 className="font-size-8 text-start">{club_preview_header}</h1>
-      <div className="cp_newcomer_wrapper">
+      <div className="cp_newcomer_wrapper rounded">
          <h1 className="font-size-8 text-start">Newcomers</h1>
       <Row className="align-items-center">
         <Col xs={12} md={4} className="d-flex justify-content-center">
           <img src={newcomers_img} className="img-fluid" />
         </Col>
         <Col xs={12} md={8} >
-          <h1 className="font-size-4 text-end">{newcomers_text}</h1>
+          <h1 className="font-size-4 text-end">{newcomers_text} <a href="/#learn">LEARN MORE</a></h1>
         </Col>
       </Row>
     </div>
-    <div className="cp_practice_wrapper">
+    <div className="cp_practice_wrapper rounded">
   <h1 className="font-size-8 text-start">Practice</h1>
   <Row className="align-items-center">
     <Col xs={12} md={8}>
-      <h1 className="font-size-4 text-start">{practice_text}</h1>
+      <h1 className="font-size-4 text-start">{practice_text} <a href="/#practice">READ MORE</a></h1>
     </Col>
     <Col xs={12} md={2} className="d-flex justify-content-center">
       <img src={leetcode_img} className="img-fluid" />
@@ -141,14 +142,14 @@ function ClubPreview() {
     </Col>
   </Row>
 </div>
-<div className="cp_compete_wrapper">
+<div className="cp_compete_wrapper rounded">
   <h1 className="font-size-8 text-start">Compete</h1>
   <Row className="align-items-center">
     <Col xs={12} md={4} className="d-flex justify-content-center">
       <img src={compete_img} className="img-fluid" />
     </Col>
     <Col xs={12} md={8}>
-      <h1 className="font-size-4 text-end">______{compete_text}______</h1>
+      <h1 className="font-size-4 text-end">{compete_text} <a href="/#compete">SEE MORE</a></h1>
     </Col>
   </Row>
 </div>
@@ -160,9 +161,9 @@ function ClubPreview() {
 
 function OurTeam() {
   let our_team = "OUR TEAM"
-  let team_shoutout = "The club wouldn’t be possible without all our amazing board members and advisors. Check them out here!    VIEW BOARD"
+  let team_shoutout = "The club wouldn’t be possible without all our amazing board members and advisors. Check them out here!   "
 
-  let team_symbol = "/home/our_team/team_icon.png"
+  let team_symbol = "/home/our_team/team_icon.jpg"
 
   return (
     <div className="our_team_wrapper">
@@ -172,7 +173,7 @@ function OurTeam() {
           <img src={team_symbol} className="img-fluid" />
         </Col>
         <Col xs={12} md={10} >
-          <h1 className="font-size-4">{team_shoutout}</h1>
+          <h1 className="font-size-4">{team_shoutout} <a href="/#board">VIEW BOARD</a></h1>
         </Col>
         <Col xs={12} md={1} className="d-flex justify-content-center">
           <img src={team_symbol} className="img-fluid" />

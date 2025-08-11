@@ -9,7 +9,7 @@ import githubLogo from '/navbar/github.svg';
 export default function NavBar() {
   return (
     <div>
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="navbar">
       <Container>
         <Navbar.Brand href="#" className="d-flex align-items-center">
   <img

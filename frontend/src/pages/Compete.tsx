@@ -4,26 +4,6 @@ import Col from "react-bootstrap/Col";
 
 import "../scss/global.scss"
 
-function BoardBanner() {
-  let board_doodle = "/board/board_doodle.jpg";
-  let board_banner_main_header = "ACM @ UCI wouldn’t be possible without our hardworking board members"
-  let board_banner_sub_header = "Check out the AGENTS of ACM below, and if you’re interested, get involved and join the team!"
-
-  return (
-    <div className="board_banner_wrapper d-flex justify-content-center align-items-center">
-      <Row className="align-items-center">
-          <Col xs={12} md={4} className="d-flex justify-content-center">
-            <img src={board_doodle} className="subpage_banner_image"></img>
-          </Col>
-          <Col xs={12} md={8} className="text-left">
-            <h1 className="font-size-10">{board_banner_main_header}</h1>
-            <h1 className="font-size-6">{board_banner_sub_header}</h1>
-          </Col>
-        </Row>
-    </div>
-  )
-}
-
 
 function CompeteBanner() {
 let compete_doodle = "/compete/compete_doodle.jpg";
@@ -188,7 +168,7 @@ function AdditionalResources() {
   return (
     <div className='additional_resources_wrapper'>
       <h1 className="font-size-8">Additional Resources</h1>
-      <h1 className="font-size-4">ICPC main website:&nbsp;
+      <h1 className="font-size-4">ICPC Main Website:&nbsp;
         <a href="https://icpc.global">https://icpc.global</a>
       </h1>
       <h1 className="font-size-4">Past ICPC Problems:&nbsp;
