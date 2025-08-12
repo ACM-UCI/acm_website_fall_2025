@@ -8,6 +8,8 @@ import type { WeeklyProblems, Presentation, Problem } from '../extra/types.ts';
 import "../scss/global.scss"
 import imageUrlBuilder from "@sanity/image-url";
 
+import Loading from '../extra/Loading.tsx';
+
 const builder = imageUrlBuilder(client);
 
 function urlFor(source: any) {
@@ -49,7 +51,6 @@ function PracticeBanner() {
   )
 }
 
-
 export default function Practice() {
   const [weeklyProblems, setWeeklyProblems] = useState<WeeklyProblems | null>(null);
   const [presentations, setPresentations] = useState<Presentation[]>([]);
@@ -80,7 +81,9 @@ export default function Practice() {
     fetchData();
   }, []);
 
-  if (!weeklyProblems) return <p>Loading...</p>;
+  if (!weeklyProblems) return(
+  <Loading></Loading>
+);
 
   const weeks = Array.from({ length: 10 }, (_, i) => i + 1);
 
@@ -97,40 +100,66 @@ export default function Practice() {
         const presentation = presentations.find((p: any) => p.week === weekNum);
 
         return (
-          <div className='practice_week'>
+          <div className='practice_week rounded'>
           <Accordion.Item eventKey={String(idx)} key={weekNum}>
             <Accordion.Header>Week {weekNum}: {presentation?.title}</Accordion.Header>
             <Accordion.Body>
               <Row className="mb-3">
                 <Col>
-                  <h5>Topic Description</h5>
-                  <p>{presentation?.description|| "No description"}</p>
+                  <h5>Topic: {presentation?.title}</h5>
+                  <p>{presentation?.description|| ""}</p>
                                   {presentation?.url ? (
                     <a href={presentation.url} target="_blank" rel="noreferrer">
                       VIEW SLIDES
                     </a>
                   ) : (
-                    "No presentation"
+                    ""
                   )}
 
                 </Col>
                 <Col>
-                  <h5>Presentation</h5>
+                  <h5>Presentation:</h5>
                          <img src={presentation?.image ? (urlFor(presentation.image).width(200).height(200).url()) : ("")}
         alt={presentation?.title}></img>
                 </Col>
               </Row>
-
-              <h6>Practice Problems</h6>
+<div className="practice_problem_wrapper">
+              <h6 style={{textDecoration: "underline"}}>Practice Problems</h6>
+              <div style={{height: "2vh"}}></div>
               <ul>
-                {problems.map((problem: any) => (
-                  <li key={problem._id}>
-                    <a href={problem.url} target="_blank" rel="noreferrer">
-                      {problem.name}
-                    </a> - {problem.difficulty} ({problem.percentagePassed}% passed)
-                  </li>
-                ))}
-              </ul>
+  {problems.map((problem: any) => {
+    const difficultyColor =
+      problem.difficulty?.toLowerCase() === "hard"
+        ? "red"
+        : problem.difficulty?.toLowerCase() === "medium"
+        ? "orange"
+        : problem.difficulty?.toLowerCase() === "easy"
+        ? "green"
+        : "inherit";
+
+    return (
+      <div>
+      <li key={problem._id}>
+        <a href={problem.url} target="_blank" rel="noreferrer">
+          {problem.name}
+        </a>{" "}
+        -{" "}
+        <span
+          style={{
+            color: difficultyColor,
+            fontWeight: "bold",
+          }}
+        >
+          {problem.difficulty?.toUpperCase()}
+        </span>{" "}
+        ({problem.percentagePassed}% passed)
+      </li>
+      <hr></hr>
+</div>
+    );
+  })}
+</ul>
+</div>
             </Accordion.Body>
           </Accordion.Item>
         </div>

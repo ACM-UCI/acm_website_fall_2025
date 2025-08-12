@@ -2,17 +2,50 @@ body {
   overflow-x: hidden; 
 }
 
+.board_confetti {
+  width: 4vw; 
+}
+
+.icpc_desc_wrapper {
+  margin-top: 4vh;
+  margin-left: 4vw;
+  margin-right: 4vw; 
+  margin-bottom: -4vh;
+}
+
+.icpc_desc_wrapper > h1 {
+  line-height: 140%; 
+}
+
+.icpc_involve_desc_wrapper > h1{
+  line-height: 180%; 
+}
+
+
+.hoc_carousel_wrapper {
+  margin-top: 3vh;
+}
+
 .top_banner_image {
     width: 11vw; 
-    transition: transform 0.6s ease-in-out;
+    //transition: transform 0.6s ease-in-out;
+}
+
+.top_banner_image:hover {
+  animation: spin 0.6s ease-in-out;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 a {
   text-decoration: none !important;
-}
-
-.top_banner_image:hover {
-  transform: rotate(360deg);
 }
 
 .subpage_banner_image {
@@ -53,10 +86,51 @@ $default-bg-color: yellow !default;
 $default-margin: 1% !default;
 $default-padding: 2% !default;
 
-@mixin section-wrapper($bg-color: $default-bg-color, $margin: $default-margin, $padding: $default-padding) {
+@mixin section-wrapper(
+  $bg-color: $default-bg-color,
+  $margin: $default-margin,
+  $padding: $default-padding,
+  $margin-top: null,
+  $margin-bottom: null,
+  $margin-x: null,
+  $padding-top: null,
+  $padding-bottom: null,
+  $padding-x: null
+) {
   background-color: $bg-color;
   margin: $margin;
   padding: $padding;
+
+  @if $margin-top != null {
+    margin-top: $margin-top;
+  }
+
+  @if $margin-bottom != null {
+    margin-bottom: $margin-bottom;
+  }
+
+  @if $margin-x != null {
+    margin-left: $margin-x;
+    margin-right: $margin-x;
+  }
+
+  @if $padding-top != null {
+    padding-top: $padding-top;
+  }
+
+  @if $padding-bottom != null {
+    padding-bottom: $padding-bottom;
+  }
+
+  @if $padding-x != null {
+    padding-left: $padding-x;
+    padding-right: $padding-x;
+  }
+}
+
+
+.compete_page_wrapper {
+  @include section-wrapper(white, 1%, 2%);
 }
 
 .board_banner_wrapper {
@@ -65,11 +139,16 @@ $default-padding: 2% !default;
 }
 
 .practice_dropdown {
-  @include section-wrapper(grey, 3%, 2%);
+  @include section-wrapper(white, 3%, 2%);
 }
 
 .practice_week {
-  @include section-wrapper(pink, 1%, 1%);
+  @include section-wrapper(#91A1BD, 1%, 1%);
+
+}
+
+.practice_problem_wrapper {
+   @include section-wrapper(#E1ECF2, -1%, 1%);
 }
 
 .practice_banner_wrapper {
@@ -78,13 +157,23 @@ $default-padding: 2% !default;
 }
 
 .learn_banner_wrapper {
-    @include section-wrapper(grey, 0, 2%);
-  height: 50vh;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  background-color: cornflowerblue;
+    //@include section-wrapper(grey, 0, 2%);
+  height: 70vh;
 }
 
 .compete_banner_wrapper {
-  @include section-wrapper(grey, 0, 2%);
-  height: 50vh;
+  @include section-wrapper(
+  grey,
+  0, 2%,      // margin, padding
+  0, 0, 0, // margin-top, margin-bottom, margin-x
+  10vh, 10vh, 2vw   // padding-top, padding-bottom, padding-x
+);
+  height: 70vh;
 }
 
 .icpc_wrapper {
@@ -108,6 +197,7 @@ $default-padding: 2% !default;
 .not_satisfied_wrapper {
    margin: 0 3%; 
    padding-bottom: 2vh;
+   margin-bottom: -3vh;
 }
 
 .hall_of_champions_wrapper {
@@ -115,7 +205,11 @@ $default-padding: 2% !default;
 }
 
 .additional_resources_wrapper {
-  @include section-wrapper(white, 1%, 2%);
+  margin-left: 1vw; 
+  margin-right: 1vw;
+  margin-top: -3vh;
+  margin-bottom: -3vh; 
+  padding: 2%;
 }
 
 .codeforces_image {
@@ -164,6 +258,7 @@ $default-padding: 2% !default;
     background-color: #B3CBF5;
     height: 10vh;
     align-items: center;
+    padding: 1vw;
 }
 
 

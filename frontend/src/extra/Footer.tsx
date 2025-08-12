@@ -17,6 +17,7 @@ export default function Footer() {
         <Col xs={12} md={4} >
         </Col>
         <Col xs={12} md={4} className="d-flex justify-content-end">
+        <Row></Row>
                               <Nav.Link target="_blank" href="https://discord.gg/MCtKPxC">
                 <img
                     src={discordLogo}

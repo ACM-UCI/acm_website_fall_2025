@@ -32,8 +32,10 @@ function WhatIsICPC() {
 
   return (
     <div className="icpc_wrapper">
-      <h1 className="font-size-12">What is ICPC?</h1>
-      <h1 className="font-size-5">{icpc_description}</h1>
+      <h1 className="font-size-10">What is ICPC?</h1>
+      <div className="icpc_desc_wrapper">
+        <h1 className="font-size-3">{icpc_description}</h1>
+      </div>
     </div>
   )
 }
@@ -44,13 +46,16 @@ function Involvement() {
 
   return (
     <div className="involvement_wrapper">
-      <h1 className="font-size-12">How do I get Involved?</h1>
+      <h1 className="font-size-10">How do I get Involved?</h1>
       <Row className="align-items-center">
         <Col xs={12} md={6} className="d-flex justify-content-center">
           <img src={involvement_image} className="img-fluid" />
         </Col>
-        <Col xs={12} md={6} className="text-start">
-          <h1 className="font-size-5">{involvement_description}</h1>
+        <Col xs={12} md={1}></Col>
+        <Col xs={12} md={4} className="text-start">
+        <div className="icpc_involve_desc_wrapper">
+          <h1 className="font-size-3">{involvement_description}</h1>
+        </div>
         </Col>
       </Row>
     </div>
@@ -67,7 +72,7 @@ function CodeforcesShoutOut() {
 
   return (
     <div className="codeforces_shoutout_wrapper">
-      <h1 className="font-size-8">Heard of Codeforces?</h1>
+      <h1 className="font-size-6">Heard of Codeforces?</h1>
       <h1 className="font-size-3">{codeforces_description}</h1>
       <h1 className="font-size-3">{codeforces_ratings}</h1>
       <img src={codeforces_image} className='codeforces_image'></img>
@@ -80,7 +85,7 @@ function ICS80ShoutOut() {
   let ics80_description = "I&C SCI 80 is the algorithmic training prep course! Actual description here. Studies in selected areas of information and computer sciences. Topics addressed vary each quarter.";
   return (
     <div className="ics80_wrapper">
-      <h1 className="font-size-8">Heard of ICS 80?</h1>
+      <h1 className="font-size-6">Heard of ICS 80?</h1>
       <h1 className="font-size-3">{ics80_description}</h1>
     </div>
   )
@@ -91,7 +96,7 @@ function NotSatisfied() {
 
   return (
     <div className="not_satisfied_wrapper">
-      <h1 className="font-size-8">Still Not Satisified?</h1>
+      <h1 className="font-size-6">Still Not Satisified?</h1>
       <h1 className="font-size-3">{not_satisfied_blurb}</h1>
     </div>
   );
@@ -104,8 +109,9 @@ function HallOfChampions() {
 
   return (
     <div className="hall_of_champions_wrapper">
-      <h1 className="font-size-12">Hall of Champions</h1>
-      <h1 className="font-size-4">{hall_of_champions_blurb}</h1>
+      <h1 className="font-size-10">Hall of Champions</h1>
+      <h1 className="font-size-3">{hall_of_champions_blurb}</h1>
+      <div className="hoc_carousel_wrapper">
       <Row className="align-items-center">
         <Col xs={12} md={9} className="d-flex justify-content-center">
           <Carousel>
@@ -115,8 +121,7 @@ function HallOfChampions() {
                 className="carousel_image"
               />
               <Carousel.Caption>
-                <h3>Second Slide</h3>
-                <p>This is a description for the second slide.</p>
+                <p>ICPC 2023 - Luxor, Egypt</p>
               </Carousel.Caption>
             </Carousel.Item>
 
@@ -126,8 +131,7 @@ function HallOfChampions() {
                 className="carousel_image"
               />
               <Carousel.Caption>
-                <h3>Third Slide</h3>
-                <p>This is a description for the third slide.</p>
+                <p>ICPC 2024 - Astana, Kazakhstan</p>
               </Carousel.Caption>
             </Carousel.Item>
 
@@ -137,8 +141,7 @@ function HallOfChampions() {
                 className="carousel_image"
               />
               <Carousel.Caption>
-                <h3>Second Slide</h3>
-                <p>This is a description for the second slide.</p>
+                <p>ICPC 2024 - Astana, Kazakhstan (walking)</p>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
@@ -160,6 +163,7 @@ function HallOfChampions() {
           </div>
         </Col>
       </Row>
+      </div>
     </div>
   );
 }
@@ -167,14 +171,14 @@ function HallOfChampions() {
 function AdditionalResources() {
   return (
     <div className='additional_resources_wrapper'>
-      <h1 className="font-size-8">Additional Resources</h1>
-      <h1 className="font-size-4">ICPC Main Website:&nbsp;
+      <h1 className="font-size-6">Additional Resources</h1>
+      <h1 className="font-size-3">ICPC Main Website:&nbsp;
         <a href="https://icpc.global">https://icpc.global</a>
       </h1>
-      <h1 className="font-size-4">Past ICPC Problems:&nbsp;
+      <h1 className="font-size-3">Past ICPC Problems:&nbsp;
         <a href="https://icpc.global/worldfinals/past-problems">https://icpc.global/worldfinals/past-problems</a>
       </h1>
-      <h1 className="font-size-4">2023 World Finals Article:&nbsp;
+      <h1 className="font-size-3">2023 World Finals Article:&nbsp;
         <a href="https://ics.uci.edu/2023/06/23/uc-irvine-to-compete-at-world-finals-of-the-international-collegiate-programming-contest/">https://ics.uci.edu/2023/06/23/uc-irvine-to-compete-at-world-finals-of-the-international-collegiate-programming-contest/ </a>
       </h1>
     </div>
@@ -187,13 +191,15 @@ export default function Compete() {
   return (
     <div>
       <CompeteBanner></CompeteBanner>
-      <WhatIsICPC></WhatIsICPC>
-      <Involvement></Involvement>
-      <CodeforcesShoutOut></CodeforcesShoutOut>
-      <ICS80ShoutOut></ICS80ShoutOut>
-      <NotSatisfied></NotSatisfied>
-      <HallOfChampions></HallOfChampions>
-      <AdditionalResources></AdditionalResources>
+      <div className="compete_page_wrapper">
+        <WhatIsICPC></WhatIsICPC>
+        <Involvement></Involvement>
+        <CodeforcesShoutOut></CodeforcesShoutOut>
+        <ICS80ShoutOut></ICS80ShoutOut>
+        <NotSatisfied></NotSatisfied>
+        <HallOfChampions></HallOfChampions>
+        <AdditionalResources></AdditionalResources>
+      </div>
     </div>
   );
 }

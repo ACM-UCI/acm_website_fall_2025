@@ -36,7 +36,7 @@ function ThankYouMessage() {
     <Row className="align-items-center">
 
           <Col xs={12} md={1} className="d-flex justify-content-center">
-            <img src={confetti_left}/> 
+            <img src={confetti_left} className="board_confetti"/> 
           </Col>
           <Col xs={12} md={10} className="text-center">
             <h1 className="font-size-4">{thank_you_message}</h1>
@@ -44,7 +44,7 @@ function ThankYouMessage() {
           </Col>
 
           <Col xs={12} md={1} className="d-flex justify-content-center">
-            <img src={confetti_right}/> 
+            <img src={confetti_right} className="board_confetti"/> 
           </Col>
         </Row>
   </div>
@@ -122,7 +122,7 @@ function MemberCard({
 
   if (!member) return null;
 
-// Helper to determine size
+
 const getImageSize = (position: any) => {
   const key = position.toLowerCase();
   if (["president", "internal-vp", "external-vp"].includes(key)) {
@@ -134,33 +134,51 @@ const getImageSize = (position: any) => {
   if (["faculty-advisor", "advisor-of-competition"].includes(key)) {
     return 0.35;
   }
-  return 0.2; // default size
+  return 0.2; 
 };
 
 
 const sizeFactor = getImageSize(member.position);
 const imageWidth = Math.round(window.innerWidth * sizeFactor);
-const imageHeight = Math.round(window.innerHeight * sizeFactor);
+const imageHeight = Math.round(window.innerHeight * sizeFactor * 2);
+const sizePercent = getImageSize(member.position) * 100; 
 
   return (
-    <div className={member.position.replace(/\s+/g, "_")}>
+
+
+<div className={member.position.replace(/\s+/g, "_")} style={{ width: `${sizePercent}vw` }}>
   <img
-    src={urlFor(member.image).width(imageWidth).height(imageHeight).url()}
+    src={urlFor(member.image).url()}
     alt={member.name}
     className="img-fluid mb-2"
+    style={{ width: "100%", height: "100%" }} // keep fluid scaling
   />
-  <Row>
+  <Row className="align-items-center" style={{ width: "100%", margin: 0 }}>
     <Col>
       <h1>{member.name}</h1>
-      <h1 style={{ fontSize: "1.2rem" }}>{member.position.replace(/-/g, " ")}</h1>
+      <h1 style={{ fontSize: "1.2rem" }}>
+        {member.position
+          .replace(/-/g, " ")
+          .replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase())}
+      </h1>
     </Col>
-    <Col>
+    <Col xs="auto" className="text-end">
       <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-        <img style={{ width: "3vw" }} src="/board/linkedin.png" />
+        <img
+          style={{
+            width: "3vw",
+            maxWidth: "40px",
+          }}
+          src="/board/linkedin.png"
+          alt="LinkedIn"
+        />
       </a>
     </Col>
   </Row>
 </div>
+
+
+
 
   );
 };

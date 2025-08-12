@@ -30,7 +30,7 @@ function WhatIsACM() {
   let acm_short_description = "ACM@UCI is UCI’s official competitive programming club on campus."
   let acm_meeting_time_loc = "Meetings are every Wednesday from 6pm to 8pm in DBH 3011"
 
-  let acm_with_balloons = "/home/what_is_acm/acm_with_balloons.png"
+  let acm_with_balloons = "/home/what_is_acm/acm_with_balloons.jpg"
 
   return (
     <div className="what_is_acm_wrapper shadow rounded">
@@ -44,7 +44,7 @@ function WhatIsACM() {
         <div style={{height: "8vh"}}></div>
       </Col>
       <Col xs={12} md={4} className="d-flex justify-content-center">
-        <img src={acm_with_balloons} className="img-fluid" />
+        <img src={acm_with_balloons} className="img-fluid rounded" />
       </Col>
     </Row>
     </div>
