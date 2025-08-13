@@ -347,12 +347,47 @@ $default-padding: 2% !default;
 .navbar {
   background-color: #E6DFDC;
 }
+
 .footer_wrapper {
-    background-color: #B3CBF5;
-    height: 10vh;
-    align-items: center;
-    padding: 1vw;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 2vw;
+  gap: 2vw;
+  flex-wrap: wrap;
+  background-color: #f5f5f5;
 }
+
+.footer_section {
+  display: flex;
+  flex-direction: column; /* stack logo row under contact text */
+  align-items: flex-start;
+}
+
+.footer_top_row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between; /* header left, contact right */
+  align-items: center;
+}
+
+.footer_logo_row {
+  display: flex;
+  gap: -5vw; 
+  margin-top: 0.5rem;
+}
+
+.footer_section h1 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.footer_section img {
+  width: 4vw;    /* scales with viewport */
+  max-width: 40px;
+  height: auto;
+}
+
 
 
 .window {

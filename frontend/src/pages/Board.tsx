@@ -112,6 +112,20 @@ function MemberCard({
 
   if (!member) return null;
 
+  function formatPosition(position: string) {
+  const pos = position.replace(/-/g, " ");
+  
+  // Capitalize first letters of each word
+  const capitalized = pos.replace(/\w\S*/g, (txt) =>
+    txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+  );
+
+  // Handle VP special case
+  if (/internal vp/i.test(pos)) return "Internal VP";
+  if (/external vp/i.test(pos)) return "External VP";
+
+  return capitalized;
+}
 
 const getImageSize = (position: any) => {
   const key = position.toLowerCase();
@@ -149,11 +163,10 @@ const sizePercent = getImageSize(member.position) * 100;
   <Row className="align-items-center" style={{ width: "100%", margin: 0 }}>
     <Col>
       <h1>{member.name}</h1>
-      <h1 style={{ fontSize: "1.2rem" }}>
-        {member.position
-          .replace(/-/g, " ")
-          .replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase())}
-      </h1>
+<h1 style={{ fontSize: "1.2rem", margin: 0 }}>
+  {formatPosition(member.position)}
+</h1>
+
     </Col>
     <Col xs="auto" className="text-end">
       <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
