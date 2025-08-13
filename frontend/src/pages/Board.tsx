@@ -31,23 +31,12 @@ function ThankYouMessage() {
   let thank_you_message = "Thank you to all past board members for building the foundation of ACM @ UCI and to any and all individuals who managed to stop by - even for just a single meeting!";
 
   return (
+<div className="thank_you_message">
+  <img src={confetti_left} className="board_confetti" />
+  <h1 className="font-size-4 text-center">{thank_you_message}</h1>
+  <img src={confetti_right} className="board_confetti" />
+</div>
 
-  <div className="thank_you_message">
-    <Row className="align-items-center">
-
-          <Col xs={12} md={1} className="d-flex justify-content-center">
-            <img src={confetti_left} className="board_confetti"/> 
-          </Col>
-          <Col xs={12} md={10} className="text-center">
-            <h1 className="font-size-4">{thank_you_message}</h1>
-            
-          </Col>
-
-          <Col xs={12} md={1} className="d-flex justify-content-center">
-            <img src={confetti_right} className="board_confetti"/> 
-          </Col>
-        </Row>
-  </div>
 );
 }
 
@@ -114,6 +103,7 @@ export default function Board() {
   );
 };
 
+
 function MemberCard({
   member,
 }: {
@@ -129,7 +119,7 @@ const getImageSize = (position: any) => {
     return 0.25;
   }
   if (["webmaster", "treasurer", "secretary", "events-coordinator"].includes(key)) {
-    return 0.2;
+    return 0.20;
   }
   if (["faculty-advisor", "advisor-of-competition"].includes(key)) {
     return 0.35;
@@ -137,21 +127,24 @@ const getImageSize = (position: any) => {
   return 0.2; 
 };
 
-
-const sizeFactor = getImageSize(member.position);
-const imageWidth = Math.round(window.innerWidth * sizeFactor);
-const imageHeight = Math.round(window.innerHeight * sizeFactor * 2);
 const sizePercent = getImageSize(member.position) * 100; 
 
   return (
 
-
-<div className={member.position.replace(/\s+/g, "_")} style={{ width: `${sizePercent}vw` }}>
+<div
+  className={member.position.replace(/\s+/g, "_")}
+  style={{ width: `${sizePercent}vw` }}
+>
   <img
     src={urlFor(member.image).url()}
     alt={member.name}
     className="img-fluid mb-2"
-    style={{ width: "100%", height: "100%" }} // keep fluid scaling
+    style={{
+      width: "100%",
+      height: "25vw", 
+      objectFit: "cover",
+      borderRadius: "8px",
+    }}
   />
   <Row className="align-items-center" style={{ width: "100%", margin: 0 }}>
     <Col>
@@ -176,6 +169,7 @@ const sizePercent = getImageSize(member.position) * 100;
     </Col>
   </Row>
 </div>
+
 
 
 
@@ -235,5 +229,6 @@ const Advisory = ({ members }: { members: (BoardMember | undefined)[] }) => (
     </Col>
   </div>
 );
+
 
 

@@ -50,6 +50,8 @@ a {
 
 .subpage_banner_image {
   width: 30vw; 
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 }
 
 .carousel_image {
@@ -328,8 +330,19 @@ $default-padding: 2% !default;
 }
 
 .thank_you_message {
-  @include section-wrapper(white, 1%, 2%);
+   @include section-wrapper(white, 1%, 2%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw; 
+  flex-wrap: nowrap; 
 }
+
+.board_confetti {
+  width: 50px;  /* adjust as needed */
+  height: auto;
+}
+
 
 .navbar {
   background-color: #E6DFDC;
@@ -414,6 +427,7 @@ $default-padding: 2% !default;
     transition: 0.1s linear;
   }
 }
+
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss"
 
