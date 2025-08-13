@@ -101,8 +101,9 @@ export default function Practice() {
 
         return (
           <div className='practice_week rounded'>
+          <h1>Week {weekNum}</h1>
           <Accordion.Item eventKey={String(idx)} key={weekNum}>
-            <Accordion.Header>Week {weekNum}: {presentation?.title}</Accordion.Header>
+            <Accordion.Header>{presentation?.title}</Accordion.Header>
             <Accordion.Body>
               <Row className="mb-3">
                 <Col>
@@ -154,7 +155,6 @@ export default function Practice() {
         </span>{" "}
         ({problem.percentagePassed}% passed)
       </li>
-      <hr></hr>
 </div>
     );
   })}

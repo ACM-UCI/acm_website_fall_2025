@@ -21,7 +21,7 @@ export default function NavBar() {
 </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
+          <Nav className="open_nav">
             <Nav.Link href="#learn">Learn</Nav.Link>
             <Nav.Link href="#practice">Practice</Nav.Link>
             <Nav.Link href="#compete">Compete</Nav.Link>

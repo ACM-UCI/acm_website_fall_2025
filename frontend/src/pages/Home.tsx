@@ -14,15 +14,11 @@ function TopBanner() {
 
   return (
     <div className="banner_header_wrapper">
-    <Row className="align-items-center">
-      {top_banner_images.map((image: any) => (
-        <Col className="d-flex justify-content-center">
-          <img src={image} className="top_banner_image" />
-        </Col>
+      {top_banner_images.map((image: string, index: number) => (
+        <img key={index} src={image} className="top_banner_image" />
       ))}
-    </Row>
     </div>
-  )
+  );
 }
 
 function WhatIsACM() {
@@ -30,24 +26,26 @@ function WhatIsACM() {
   let acm_short_description = "ACM@UCI is UCI’s official competitive programming club on campus."
   let acm_meeting_time_loc = "Meetings are every Wednesday from 6pm to 8pm in DBH 3011"
 
-  let acm_with_balloons = "/home/what_is_acm/acm_with_balloons.jpg"
+  let acm_with_balloons = "/home/what_is_acm/acm_balloons_doodle.png"
 
   return (
     <div className="what_is_acm_wrapper shadow rounded">
-    <Row className="align-items-center">
-      <Col xs={12} md={8} className="text-start">
+      <div className="what_is_acm_text">
         <h1 className="font-size-16">{what_is_acm}</h1>
-        <div style={{height: "4vh"}}></div>
+        <div style={{ height: "4vh" }}></div>
         <h1 className="font-size-6">{acm_short_description}</h1>
         <hr />
         <h1 className="font-size-6">{acm_meeting_time_loc}</h1>
-        <div style={{height: "8vh"}}></div>
-      </Col>
-      <Col xs={12} md={4} className="d-flex justify-content-center">
-        <img src={acm_with_balloons} className="img-fluid rounded" />
-      </Col>
-    </Row>
+        <div style={{ height: "8vh" }}></div>
+      </div>
+
+      <img
+        src={acm_with_balloons}
+        className="what_is_acm_image"
+        alt="ACM with balloons"
+      />
     </div>
+
   );
 }
 
@@ -65,23 +63,17 @@ function ProgrammingLanguageDisplay() {
   ];
 
   return (
-    <div>
-      <Row className="align-items-center">
-        {programming_language_images.map((url: any, id: any) => (
-          <React.Fragment key={id}> {/* Note to self - react.fragments just mean no extra DOM node is created */}
-            <Col className="d-flex justify-content-center">
-              <img src={url} className="programming_language_image" />
-            </Col>
-
-            {id < programming_language_images.length - 1 && (
-              <Col xs="auto" className="vertical_spacer_col">
-                <div className="vertical_spacer" />
-              </Col>
-            )}
-          </React.Fragment>
-        ))}
-      </Row>
+    <div className="programming_language_wrapper">
+      {programming_language_images.map((url: string, id: number) => (
+        <React.Fragment key={id}>
+          <img src={url} className="programming_language_image" />
+          {id < programming_language_images.length - 1 && (
+            <div className="vertical_spacer" />
+          )}
+        </React.Fragment>
+      ))}
     </div>
+
   )
 
 }
@@ -101,61 +93,59 @@ function MissionStatement() {
 }
 
 function ClubPreview() {
- let club_preview_header = "Come Check Us Out!"
+  let club_preview_header = "Come Check Us Out!"
 
- // maybe today - images and text defined in a separate document (then just import all and like src=images.newcomer_img, etc)
- let newcomers_img = "/home/club_preview/newcomers.jpg"
- let newcomers_text = "To start competitive programming, begin by learning a programming language, preferably C++, Java, or Python."
+  // maybe today - images and text defined in a separate document (then just import all and like src=images.newcomer_img, etc)
+  let newcomers_img = "/home/club_preview/newcomers.jpg"
+  let newcomers_text = "To start competitive programming, begin by learning a programming language, preferably C++, Java, or Python."
 
- let leetcode_img = "/home/club_preview/leetcode.webp"
- let codeforces_img = "/home/club_preview/codeforces.png"
- let practice_text = "Practice on platforms like Codeforces, LeetCode, or CodeChef, focusing on solving problems of increasing difficulty."
+  let leetcode_img = "/home/club_preview/leetcode.webp"
+  let codeforces_img = "/home/club_preview/codeforces.png"
+  let practice_text = "Practice on platforms like Codeforces, LeetCode, or CodeChef, focusing on solving problems of increasing difficulty."
 
   let compete_img = "/home/club_preview/compete.png"
   let compete_text = "Mastering fundamental data structures and algorithms is crucial, along with practicing regularly and participating in contests."
 
-   return (
+  return (
     <div className="club_preview_wrapper">
       <h1 className="font-size-8 text-start">{club_preview_header}</h1>
-      <div className="cp_newcomer_wrapper rounded">
-         <h1 className="font-size-8 text-start">Newcomers</h1>
-      <Row className="align-items-center">
-        <Col xs={12} md={4} className="d-flex justify-content-center">
-          <img src={newcomers_img} className="img-fluid" />
-        </Col>
-        <Col xs={12} md={8} >
-          <h1 className="font-size-4 text-end">{newcomers_text} <a href="/#learn">LEARN MORE</a></h1>
-        </Col>
-      </Row>
-    </div>
-    <div className="cp_practice_wrapper rounded">
-  <h1 className="font-size-8 text-start">Practice</h1>
-  <Row className="align-items-center">
-    <Col xs={12} md={8}>
-      <h1 className="font-size-4 text-start">{practice_text} <a href="/#practice">READ MORE</a></h1>
-    </Col>
-    <Col xs={12} md={2} className="d-flex justify-content-center">
-      <img src={leetcode_img} className="img-fluid" />
-    </Col>
-        <Col xs={12} md={2} className="d-flex justify-content-center">
-      <img src={codeforces_img} className="img-fluid" />
-    </Col>
-  </Row>
-</div>
-<div className="cp_compete_wrapper rounded">
-  <h1 className="font-size-8 text-start">Compete</h1>
-  <Row className="align-items-center">
-    <Col xs={12} md={4} className="d-flex justify-content-center">
-      <img src={compete_img} className="img-fluid" />
-    </Col>
-    <Col xs={12} md={8}>
-      <h1 className="font-size-4 text-end">{compete_text} <a href="/#compete">SEE MORE</a></h1>
-    </Col>
-  </Row>
-</div>
 
+      {/* Newcomers */}
+      <div className="cp_newcomer_wrapper rounded">
+        <h1 className="font-size-8 text-start">Newcomers</h1>
+        <div className="cp_section">
+          <img src={newcomers_img} className="img-fluid" alt="Newcomers" />
+          <div className="cp_text text-end font-size-4">
+            {newcomers_text} <a href="/#learn">LEARN MORE</a>
+          </div>
+        </div>
+      </div>
+
+      {/* Practice */}
+      <div className="cp_practice_wrapper rounded">
+        <h1 className="font-size-8 text-start">Practice</h1>
+        <div className="cp_section">
+          <div className="cp_text text-start font-size-4">
+            {practice_text} <a href="/#practice">READ MORE</a>
+          </div>
+          <img src={leetcode_img} className="img-fluid" alt="LeetCode" />
+          <img src={codeforces_img} className="img-fluid" alt="Codeforces" />
+        </div>
+      </div>
+
+      {/* Compete */}
+      <div className="cp_compete_wrapper rounded">
+        <h1 className="font-size-8 text-start">Compete</h1>
+        <div className="cp_section">
+          <img src={compete_img} className="img-fluid" alt="Compete" />
+          <div className="cp_text text-end font-size-4">
+            {compete_text} <a href="/#compete">SEE MORE</a>
+          </div>
+        </div>
+      </div>
     </div>
   );
+
 
 }
 
@@ -168,18 +158,15 @@ function OurTeam() {
   return (
     <div className="our_team_wrapper">
       <h1 className="font-size-8">{our_team}</h1>
-      <Row className="align-items-center">
-        <Col xs={12} md={1} className="d-flex justify-content-center">
-          <img src={team_symbol} className="img-fluid" />
-        </Col>
-        <Col xs={12} md={10} >
-          <h1 className="font-size-4">{team_shoutout} <a href="/#board">VIEW BOARD</a></h1>
-        </Col>
-        <Col xs={12} md={1} className="d-flex justify-content-center">
-          <img src={team_symbol} className="img-fluid" />
-        </Col>
-      </Row>
+      <div className="our_team_row">
+        <img src={team_symbol} alt="" />
+        <h1 className="font-size-4">
+          {team_shoutout} <a href="/#board">VIEW BOARD</a>
+        </h1>
+        <img src={team_symbol} alt="" />
+      </div>
     </div>
+
   );
 }
 
