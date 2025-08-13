@@ -9,20 +9,7 @@ body {
   width: 4vw; 
 }
 
-.icpc_desc_wrapper {
-  margin-top: 4vh;
-  margin-left: 4vw;
-  margin-right: 4vw; 
-  margin-bottom: -4vh;
-}
 
-.icpc_desc_wrapper > h1 {
-  line-height: 140%; 
-}
-
-.icpc_involve_desc_wrapper > h1{
-  line-height: 180%; 
-}
 
 
 .hoc_carousel_wrapper {
@@ -144,6 +131,25 @@ $default-padding: 2% !default;
   }
 }
 
+.icpc_desc_wrapper {
+  margin-top: 4vh;
+  margin-left: 4vw;
+  margin-right: 4vw; 
+  margin-bottom: -4vh;
+}
+
+.icpc_desc_wrapper > h1 {
+  line-height: 140%; 
+}
+
+.icpc_involve_desc_wrapper {
+  @include section-wrapper(#B3CBF5, 1%, 2%);
+}
+
+.icpc_involve_desc_wrapper > h1{
+  line-height: 180%; 
+
+}
 
 .compete_page_wrapper {
   @include section-wrapper(white, 1%, 2%);

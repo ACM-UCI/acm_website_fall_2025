@@ -48,12 +48,11 @@ function Involvement() {
     <div className="involvement_wrapper">
       <h1 className="font-size-10">How do I get Involved?</h1>
       <Row className="align-items-center">
-        <Col xs={12} md={6} className="d-flex justify-content-center">
+        <Col xs={12} md={8} className="d-flex justify-content-center">
           <img src={involvement_image} className="img-fluid" />
         </Col>
-        <Col xs={12} md={1}></Col>
         <Col xs={12} md={4} className="text-start">
-        <div className="icpc_involve_desc_wrapper">
+        <div className="rounded icpc_involve_desc_wrapper">
           <h1 className="font-size-3">{involvement_description}</h1>
         </div>
         </Col>
