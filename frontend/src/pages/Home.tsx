@@ -13,7 +13,7 @@ function TopBanner() {
   return (
     <div className="banner_header_wrapper">
       {top_banner_images.map((image: string, index: number) => (
-        <img key={index} src={image} className="top_banner_image" />
+        <img key={index} src={import.meta.env.BASE_URL + image} className="top_banner_image" />
       ))}
     </div>
   );
@@ -24,7 +24,7 @@ function WhatIsACM() {
   let acm_short_description = "ACM@UCI is UCI’s official competitive programming club on campus."
   let acm_meeting_time_loc = "Meetings are every Wednesday from 6pm to 8pm in DBH 3011"
 
-  let acm_with_balloons = "/home/what_is_acm/acm_balloons_doodle.png"
+  let acm_with_balloons = import.meta.env.BASE_URL + "/home/what_is_acm/acm_balloons_doodle.png"
 
   return (
     <div className="what_is_acm_wrapper shadow rounded">
@@ -64,7 +64,7 @@ function ProgrammingLanguageDisplay() {
     <div className="programming_language_wrapper">
       {programming_language_images.map((url: string, id: number) => (
         <React.Fragment key={id}>
-          <img src={url} className="programming_language_image" />
+          <img src={import.meta.env.BASE_URL + url} className="programming_language_image" />
           {id < programming_language_images.length - 1 && (
             <div className="vertical_spacer" />
           )}
@@ -94,14 +94,14 @@ function ClubPreview() {
   let club_preview_header = "Come Check Us Out!"
 
   // maybe today - images and text defined in a separate document (then just import all and like src=images.newcomer_img, etc)
-  let newcomers_img = "/home/club_preview/newcomers.jpg"
+  let newcomers_img = import.meta.env.BASE_URL + "/home/club_preview/newcomers.jpg"
   let newcomers_text = "To start competitive programming, begin by learning a programming language, preferably C++, Java, or Python."
 
-  let leetcode_img = "/home/club_preview/leetcode.webp"
-  let codeforces_img = "/home/club_preview/codeforces.png"
+  let leetcode_img = import.meta.env.BASE_URL + "/home/club_preview/leetcode.webp"
+  let codeforces_img = import.meta.env.BASE_URL + "/home/club_preview/codeforces.png"
   let practice_text = "Practice on platforms like Codeforces, LeetCode, or Kattis, focusing on solving problems of increasing difficulty."
 
-  let compete_img = "/home/club_preview/compete.png"
+  let compete_img = import.meta.env.BASE_URL + "/home/club_preview/compete.png"
   let compete_text = "Every year, ACM takes its top members to participate in the International Collegiate Programming Competition (ICPC). Tryouts open in the Fall."
 
   return (
@@ -114,7 +114,7 @@ function ClubPreview() {
         <div className="cp_section">
           <img src={newcomers_img} className="img-fluid" alt="Newcomers" />
           <div className="cp_text text-end font-size-4">
-            {newcomers_text} <a href="/#learn">LEARN MORE</a>
+            {newcomers_text} <a href={import.meta.env.BASE_URL + "/#learn"}>LEARN MORE</a>
           </div>
         </div>
       </div>
@@ -124,7 +124,7 @@ function ClubPreview() {
         <h1 className="font-size-8 text-start">Practice</h1>
         <div className="cp_section">
           <div className="cp_text text-start font-size-4">
-            {practice_text} <a href="/#practice">READ MORE</a>
+            {practice_text} <a href={import.meta.env.BASE_URL + "/#practice"}>READ MORE</a>
           </div>
           <img src={leetcode_img} className="img-fluid" alt="LeetCode" />
           <img src={codeforces_img} className="img-fluid" alt="Codeforces" />
@@ -137,7 +137,7 @@ function ClubPreview() {
         <div className="cp_section">
           <img src={compete_img} className="img-fluid" alt="Compete" />
           <div className="cp_text text-end font-size-4">
-            {compete_text} <a href="/#compete">SEE MORE</a>
+            {compete_text} <a href={import.meta.env.BASE_URL + "/#compete"}>SEE MORE</a>
           </div>
         </div>
       </div>
@@ -151,7 +151,7 @@ function OurTeam() {
   let our_team = "OUR TEAM"
   let team_shoutout = "The club wouldn’t be possible without all our amazing board members and advisors. Check them out here!   "
 
-  let team_symbol = "/home/our_team/team_icon.jpg"
+  let team_symbol = import.meta.env.BASE_URL + "/home/our_team/team_icon.jpg"
 
   return (
     <div className="our_team_wrapper">
@@ -159,7 +159,7 @@ function OurTeam() {
       <div className="our_team_row">
         <img src={team_symbol} alt="" />
         <h1 className="font-size-4">
-          {team_shoutout} <a href="/#board">VIEW BOARD</a>
+          {team_shoutout} <a href={import.meta.env.BASE_URL + "/#board"}>VIEW BOARD</a>
         </h1>
         <img src={team_symbol} alt="" />
       </div>

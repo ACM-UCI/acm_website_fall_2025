@@ -8,10 +8,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import vscodeLogo from "/learn/VSCode.png";
-import vimLogo from "/learn/Vim.png";
-import neovimLogo from "/learn/Neovim.svg";
-import emacsLogo from "/learn/Emacs.png";
+
 import "../scss/global.scss";
 
 const Language = {
@@ -51,7 +48,7 @@ int main() {
 
 function LearnBanner() {
 
-let learn_doodle = "/learn/learn_doodle.jpg";
+let learn_doodle = import.meta.env.BASE_URL + "/learn/learn_doodle.jpg";
 let learn_banner_main_header = "Competitive programming is a sport anyone can do";
 let learn_banner_sub_header = "You don’t need fancy software or crazy math skills to succeed - just personal drive and a bit of guidance!";
 
@@ -140,7 +137,7 @@ export default function Learn() {
                     <Col>
                         <Link to="https://code.visualstudio.com">
                             <Image
-                                src={vscodeLogo}
+                                src={import.meta.env.BASE_URL + "/learn/VSCode.png"}
                                 alt="Visual Studio Code logo"
                                 className="IDE_image"
                             />
@@ -149,7 +146,7 @@ export default function Learn() {
                     <Col>
                         <Link to="https://www.vim.org/">
                             <Image
-                                src={vimLogo}
+                                src={import.meta.env.BASE_URL + "/learn/Vim.png"}
                                 alt="Vim logo"
                                 className="IDE_image"
                             />
@@ -158,7 +155,7 @@ export default function Learn() {
                     <Col>
                         <Link to="https://neovim.io/">
                             <Image
-                                src={neovimLogo}
+                                src={import.meta.env.BASE_URL + "/learn/Neovim.svg"}
                                 alt="Neovim logo"
                                 className="IDE_image"
                             />
@@ -167,7 +164,7 @@ export default function Learn() {
                     <Col>
                         <Link to="https://www.gnu.org/software/emacs/">
                             <Image
-                                src={emacsLogo}
+                                src={import.meta.env.BASE_URL + "/learn/Emacs.png"}
                                 alt="Emacs logo"
                                 className="IDE_image"
                             />

@@ -6,7 +6,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { client } from "../sanity/client";
 
 function BoardBanner() {
-  let board_doodle = "/board/board_doodle.jpg";
+  let board_doodle = import.meta.env.BASE_URL + "/board/board_doodle.jpg";
   let board_banner_main_header = "ACM @ UCI wouldn’t be possible without our hardworking board members"
   let board_banner_sub_header = "Check out the AGENTS of ACM below, and if you’re interested, get involved and join the team!"
 
@@ -26,8 +26,8 @@ function BoardBanner() {
 }
 
 function ThankYouMessage() {
-  let confetti_right = "/board/confetti_right.png";
-  let confetti_left = "/board/confetti_left.png";
+  let confetti_right = import.meta.env.BASE_URL + "/board/confetti_right.png";
+  let confetti_left = import.meta.env.BASE_URL + "/board/confetti_left.png";
   let thank_you_message = "Thank you to all past board members for building the foundation of ACM @ UCI and to any and all individuals who managed to stop by - even for just a single meeting!";
 
   return (
@@ -175,7 +175,7 @@ const sizePercent = getImageSize(member.position) * 100;
             width: "3vw",
             maxWidth: "40px",
           }}
-          src="/board/linkedin.png"
+          src={import.meta.env.BASE_URL + "/board/linkedin.png"}
           alt="LinkedIn"
         />
       </a>

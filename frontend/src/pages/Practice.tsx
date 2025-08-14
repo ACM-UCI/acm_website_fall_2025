@@ -2,7 +2,7 @@
 // manually doing it is a pain
 
 import { Accordion, Row, Col } from 'react-bootstrap';
-import {client} from "../sanity/client";
+import {client} from "../sanity/client.ts";
 import { useState, useEffect} from "react"
 import type { WeeklyProblems, Presentation} from '../extra/types.ts';
 import "../scss/global.scss"
@@ -32,7 +32,7 @@ function getCurrentQuarterAndYear() {
 }
 
 function PracticeBanner() {
-    let practice_doodle = "/practice/practice_doodle.jpg";
+    let practice_doodle = import.meta.env.BASE_URL + "/practice/practice_doodle.jpg";
     let practice_banner_main_header = "New practice problems and presentations at every meetings"
     let practice_banner_sub_header = "Try your hand at the easy problems, then see how you fare with the harder ones!"
 

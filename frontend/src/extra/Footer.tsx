@@ -1,8 +1,5 @@
 
 import Nav from "react-bootstrap/Nav"
-import discordLogo from '/footer/discord.svg';
-import emailLogo from "/footer/email.svg";
-import instagramLogo from "/footer/instagram.png";
 
 import "../scss/global.scss"
 
@@ -26,12 +23,12 @@ export default function Footer() {
     </div>
     <div className="footer_logo_row">
       <Nav.Link target="_blank" href="https://discord.gg/MCtKPxC">
-        <img style={{width: "50%"}} src={discordLogo} alt="Discord" />
+        <img style={{width: "50%"}} src={import.meta.env.BASE_URL + '/footer/discord.svg'} alt="Discord" />
       </Nav.Link>
       <Nav.Link target="_blank" href="https://www.instagram.com/acm.uci/">
-        <img style={{width: "70%"}} src={instagramLogo} alt="Instagram" />
+        <img style={{width: "70%"}} src={import.meta.env.BASE_URL + "/footer/instagram.png"} alt="Instagram" />
       </Nav.Link>
-      <a style={{marginLeft: "0.5vw"}} href="mailto:acm@uci.edu"><img style={{width: "80%"}} src={emailLogo} alt="Email" /></a>
+      <a style={{marginLeft: "0.5vw"}} href="mailto:acm@uci.edu"><img style={{width: "80%"}} src={import.meta.env.BASE_URL + "/footer/email.svg"} alt="Email" /></a>
 
     </div>
   </div>

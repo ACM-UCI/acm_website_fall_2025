@@ -6,7 +6,7 @@ import "../scss/global.scss"
 
 
 function CompeteBanner() {
-let compete_doodle = "/compete/compete_doodle.jpg";
+let compete_doodle = import.meta.env.BASE_URL + "/compete/compete_doodle.jpg";
 let compete_banner_main_header = "Achieve fame and victory by competing at ICPC";
 let compete_banner_sub_header = "Fame and victory not guaranteed. FUN is though!";
 
@@ -42,7 +42,7 @@ function WhatIsICPC() {
 
 function Involvement() {
   let involvement_description = "We have tryouts during the Fall and Spring quarters where students simulate the actual contest environment by getting into teams of 3 and solving as many problems as they can in a 2 hour window. Tryouts are typically held on Kattis or Codeforces.";
-  let involvement_image = "/compete/involvement.png";
+  let involvement_image = import.meta.env.BASE_URL + "/compete/involvement.png";
 
   return (
     <div className="involvement_wrapper">
@@ -67,7 +67,7 @@ function CodeforcesShoutOut() {
 
   let codeforces_ratings = "Codeforces ratings are determined by the ELO you get through winning contests.";
 
-  let codeforces_image = "/compete/codeforces.png";
+  let codeforces_image = import.meta.env.BASE_URL + "/compete/codeforces.png";
 
   return (
     <div className="codeforces_shoutout_wrapper">
@@ -95,7 +95,7 @@ function NotSatisfied() {
   return (
     <div className="not_satisfied_wrapper">
       <h1 className="font-size-6">Still Not Satisified?</h1>
-      <h1 className="font-size-3">Check out our <a href="/#learn">learn</a> tab for additional resources and our <a href="/#practice">practice</a> tab for presentations and practice problems!</h1>
+      <h1 className="font-size-3">Check out our <a href={import.meta.env.BASE_URL + "/#learn"}>learn</a> tab for additional resources and our <a href={import.meta.env.BASE_URL + "/#practice"}>practice</a> tab for presentations and practice problems!</h1>
     </div>
   );
 
@@ -116,7 +116,7 @@ function HallOfChampions() {
           <Carousel>
                         <Carousel.Item>
               <img
-                src="/compete/hall_of_champions/icpc00.jpg"
+                src={import.meta.env.BASE_URL + "/compete/hall_of_champions/icpc00.jpg"}
                 className="carousel_image"
               />
               <Carousel.Caption>
@@ -126,7 +126,7 @@ function HallOfChampions() {
 
                         <Carousel.Item>
               <img
-                src="/compete/hall_of_champions/icpc01.jpg"
+                src={import.meta.env.BASE_URL + "/compete/hall_of_champions/icpc01.jpg"}
                 className="carousel_image"
               />
               <Carousel.Caption>
@@ -136,7 +136,7 @@ function HallOfChampions() {
 
             <Carousel.Item>
               <img
-                src="/compete/hall_of_champions/icpc1.jpg"
+                src={import.meta.env.BASE_URL + "/compete/hall_of_champions/icpc1.jpg"}
                 className="carousel_image"
               />
               <Carousel.Caption>
@@ -146,7 +146,7 @@ function HallOfChampions() {
 
             <Carousel.Item>
               <img
-                src="/compete/hall_of_champions/icpc2.jpg"
+                src={import.meta.env.BASE_URL + "/compete/hall_of_champions/icpc2.jpg"}
                 className="carousel_image"
               />
               <Carousel.Caption>
@@ -156,7 +156,7 @@ function HallOfChampions() {
 
             <Carousel.Item>
               <img
-                src="/compete/hall_of_champions/icpc3.jpg"
+                src={import.meta.env.BASE_URL + "/compete/hall_of_champions/icpc3.jpg"}
                 className="carousel_image"
               />
               <Carousel.Caption>
