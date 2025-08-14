@@ -9,6 +9,16 @@ body {
   width: 4vw; 
 }
 
+.responsive-presentation-img {
+  width: 100%;           /* scale with the container width */
+  height: auto;          /* preserve aspect ratio */
+  max-width: 30vw;       /* optional: limit width relative to viewport */
+  max-height: 40vh;      /* optional: limit height relative to viewport */
+  object-fit: contain;   /* ensures the entire image is visible */
+  display: block;
+}
+
+
 
 
 
@@ -158,7 +168,12 @@ $default-padding: 2% !default;
 }
 
 .board_banner_wrapper {
-  @include section-wrapper(grey, 0, 2%);
+     @include section-wrapper(
+  grey,
+  0, 2%,      // margin, padding
+  0, 0, 0, // margin-top, margin-bottom, margin-x
+  10vh, 10vh, 5vw   // padding-top, padding-bottom, padding-x
+);
   height: 70vh;
 }
 
@@ -176,16 +191,18 @@ $default-padding: 2% !default;
 }
 
 .practice_banner_wrapper {
-    @include section-wrapper(grey, 0, 2%);
+    @include section-wrapper(grey, 0, 5vw);
   height: 70vh;
 }
 
 .learn_banner_wrapper {
-  padding-top: 10vh;
-  padding-bottom: 10vh;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  background-color: cornflowerblue;
+
+    @include section-wrapper(
+  grey,
+  0, 2%,      // margin, padding
+  0, 0, 0, // margin-top, margin-bottom, margin-x
+  10vh, 10vh, 5vw   // padding-top, padding-bottom, padding-x
+);
     //@include section-wrapper(grey, 0, 2%);
   height: 70vh;
 }
@@ -195,7 +212,7 @@ $default-padding: 2% !default;
   grey,
   0, 2%,      // margin, padding
   0, 0, 0, // margin-top, margin-bottom, margin-x
-  10vh, 10vh, 2vw   // padding-top, padding-bottom, padding-x
+  10vh, 10vh, 5vw   // padding-top, padding-bottom, padding-x
 );
   height: 70vh;
 }
@@ -244,7 +261,9 @@ $default-padding: 2% !default;
 }
 
 .what_is_acm_wrapper {
+
   @include section-wrapper(#8599C7, 3%, 2%);
+  background: linear-gradient(to bottom, #8599C7, #6597ad);
   display: flex;
   align-items: center;
   justify-content: space-between;

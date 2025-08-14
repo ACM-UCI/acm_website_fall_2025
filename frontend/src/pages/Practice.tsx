@@ -119,9 +119,15 @@ export default function Practice() {
 
                 </Col>
                 <Col>
-                  <h5>Presentation:</h5>
-                         <img src={presentation?.image ? (urlFor(presentation.image).width(200).height(200).url()) : ("")}
-        alt={presentation?.title}></img>
+                  <Col>
+  <h5>Presentation:</h5>
+  <img
+    src={presentation?.image ? urlFor(presentation.image).url() : ""}
+    alt={presentation?.title}
+    className="responsive-presentation-img"
+  />
+</Col>
+
                 </Col>
               </Row>
 <div className="practice_problem_wrapper">

@@ -26,15 +26,14 @@ export default function Footer() {
       <h1 className="font-size-3">CONTACT US</h1>
     </div>
     <div className="footer_logo_row">
-      <Nav.Link target="_blank" href="apple.com">
+      <Nav.Link target="_blank" href="https://discord.gg/MCtKPxC">
         <img style={{width: "50%"}} src={discordLogo} alt="Discord" />
       </Nav.Link>
-      <Nav.Link target="_blank" href="apple.com">
+      <Nav.Link target="_blank" href="https://www.instagram.com/acm.uci/">
         <img style={{width: "70%"}} src={instagramLogo} alt="Instagram" />
       </Nav.Link>
-      <Nav.Link target="_blank" href="apple.com" style={{marginLeft: "0.5vw"}}>
-        <img style={{width: "80%"}} src={emailLogo} alt="Email" />
-      </Nav.Link>
+      <a style={{marginLeft: "0.5vw"}} href="mailto:acm@uci.edu"><img style={{width: "80%"}} src={emailLogo} alt="Email" /></a>
+
     </div>
   </div>
 </div>

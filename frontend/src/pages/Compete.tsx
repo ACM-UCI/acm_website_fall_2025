@@ -81,7 +81,7 @@ function CodeforcesShoutOut() {
 }
 
 function ICS80ShoutOut() {
-  let ics80_description = "I&C SCI 80 is the algorithmic training prep course! Actual description here. Studies in selected areas of information and computer sciences. Topics addressed vary each quarter.";
+  let ics80_description = "I&C SCI 80 is a special 2 unit course designed to teach the basics of problem solving for competitive programming. The course had its initial trail run in Spring of 2025, and will be offered again in the Fall.";
   return (
     <div className="ics80_wrapper">
       <h1 className="font-size-6">Heard of ICS 80?</h1>
@@ -91,19 +91,19 @@ function ICS80ShoutOut() {
 }
 
 function NotSatisfied() {
-  let not_satisfied_blurb = "Check out our learn tab for additional resources and our practice tab for presentations and practice problems!";
 
   return (
     <div className="not_satisfied_wrapper">
       <h1 className="font-size-6">Still Not Satisified?</h1>
-      <h1 className="font-size-3">{not_satisfied_blurb}</h1>
+      <h1 className="font-size-3">Check out our <a href="/#learn">learn</a> tab for additional resources and our <a href="/#practice">practice</a> tab for presentations and practice problems!</h1>
     </div>
   );
 
 }
 
 function HallOfChampions() {
-  let hall_of_champions_blurb = "This is a blurb about our past experience competing and our past victories and what not. From the pages that graced our coffee tables to the voices that echoed through the Essence Festival stage, Essence has championed our stories, advocated for our rights, and celebrated our triumphs.";
+
+  let hall_of_champions_blurb =   "In the past, UCI has done pretty well, even making it to World Finals occasionally!";
 
 
   return (
@@ -114,6 +114,26 @@ function HallOfChampions() {
       <Row className="align-items-center">
         <Col xs={12} md={9} className="d-flex justify-content-center">
           <Carousel>
+                        <Carousel.Item>
+              <img
+                src="/compete/hall_of_champions/icpc00.jpg"
+                className="carousel_image"
+              />
+              <Carousel.Caption>
+                <p>ICPC 2014 - Ekaterinburg, Russia</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+
+                        <Carousel.Item>
+              <img
+                src="/compete/hall_of_champions/icpc01.jpg"
+                className="carousel_image"
+              />
+              <Carousel.Caption>
+                <p>ICPC 2017 - Rapid City, USA</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+
             <Carousel.Item>
               <img
                 src="/compete/hall_of_champions/icpc1.jpg"
@@ -147,7 +167,7 @@ function HallOfChampions() {
         </Col>
         <Col xs={12} md={3}>
           <div className='champions_side_info'>
-            <h1 className="font-size-4">Some of our past champions include:</h1>
+            <h1 className="font-size-4">Some of our more recent past champions include:</h1>
             <ul>
               <li>
                 Jerry Li (retired)

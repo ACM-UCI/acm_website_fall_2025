@@ -49,8 +49,7 @@ export default defineType({
     defineField({
       name: 'problemNumber',
       type: 'number',
-      title: 'Problem Number',
-      validation: (Rule) => Rule.required(),
+      title: 'Problem Number'
     }),
   ],
 })

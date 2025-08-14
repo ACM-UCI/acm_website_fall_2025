@@ -46,7 +46,7 @@ export default defineType({
             title: "Week",
             type: "number",
             options: {
-                list: [...Array(8).keys()].map(i => i + 1)
+                list: [...Array(10).keys()].map(i => i + 1)
             },
             validation: (Rule) => Rule.required()
         })

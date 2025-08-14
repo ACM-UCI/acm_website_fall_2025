@@ -101,10 +101,10 @@ function ClubPreview() {
 
   let leetcode_img = "/home/club_preview/leetcode.webp"
   let codeforces_img = "/home/club_preview/codeforces.png"
-  let practice_text = "Practice on platforms like Codeforces, LeetCode, or CodeChef, focusing on solving problems of increasing difficulty."
+  let practice_text = "Practice on platforms like Codeforces, LeetCode, or Kattis, focusing on solving problems of increasing difficulty."
 
   let compete_img = "/home/club_preview/compete.png"
-  let compete_text = "Mastering fundamental data structures and algorithms is crucial, along with practicing regularly and participating in contests."
+  let compete_text = "Every year, ACM takes its top members to participate in the International Collegiate Programming Competition (ICPC). Tryouts open in the Fall."
 
   return (
     <div className="club_preview_wrapper">
