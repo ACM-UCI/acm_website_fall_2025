@@ -1,6 +1,6 @@
 // Board.tsx
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "../sanity/client";

@@ -4,7 +4,7 @@
 import { Accordion, Row, Col } from 'react-bootstrap';
 import {client} from "../sanity/client";
 import { useState, useEffect} from "react"
-import type { WeeklyProblems, Presentation, Problem } from '../extra/types.ts';
+import type { WeeklyProblems, Presentation} from '../extra/types.ts';
 import "../scss/global.scss"
 import imageUrlBuilder from "@sanity/image-url";
 
