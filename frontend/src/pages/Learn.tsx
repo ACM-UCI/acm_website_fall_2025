@@ -8,12 +8,13 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import { useLocation } from 'react-router-dom';
 
 import "../scss/global.scss";
 
 const Language = {
-  Python: "python",
-  Cpp: "cpp",
+    Python: "python",
+    Cpp: "cpp",
 } as const;
 
 type Language = (typeof Language)[keyof typeof Language];
@@ -48,30 +49,41 @@ int main() {
 
 function LearnBanner() {
 
-let learn_doodle = import.meta.env.BASE_URL + "/learn/learn_doodle.jpg";
-let learn_banner_main_header = "Competitive programming is a sport anyone can do";
-let learn_banner_sub_header = "You don’t need fancy software or crazy math skills to succeed - just personal drive and a bit of guidance!";
+    let learn_doodle = import.meta.env.BASE_URL + "/learn/learn_doodle.jpg";
+    let learn_banner_main_header = "Competitive programming is a sport anyone can do";
+    let learn_banner_sub_header = "You don’t need fancy software or crazy math skills to succeed - just personal drive and a bit of guidance!";
 
-return (
-  <div className="learn_banner_wrapper d-flex justify-content-center align-items-center">
-    <Row className="align-items-center">
-      <Col xs={12} md={8} className="text-left">
-        <h1 className="font-size-10">{learn_banner_main_header}</h1>
-        <h1 className="font-size-6">{learn_banner_sub_header}</h1>
-      </Col>
-      <Col xs={12} md={4} className="d-flex justify-content-center">
-        <img src={learn_doodle} className="subpage_banner_image"></img>
-      </Col>
-      
-    </Row>
-  </div>
-);
+    return (
+        <div id="top" className="learn_banner_wrapper d-flex justify-content-center align-items-center">
+            <Row className="align-items-center">
+                <Col xs={12} md={8} className="text-left">
+                    <h1 className="static-font-size-10">{learn_banner_main_header}</h1>
+                    <h1 className="static-font-size-6">{learn_banner_sub_header}</h1>
+                </Col>
+                <Col xs={12} md={4} className="d-flex justify-content-center">
+                    <img src={learn_doodle} className="subpage_banner_image"></img>
+                </Col>
+
+            </Row>
+        </div>
+    );
 }
 
 export default function Learn() {
     const [language, setLanguage] = useState<Language>(Language.Python);
 
     const el = useRef(null);
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.hash) {
+            const targetElement = document.querySelector(location.hash);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, [location]);
+
 
     useEffect(() => {
         const typed = new Typed(el.current, {
@@ -91,7 +103,7 @@ export default function Learn() {
             <LearnBanner></LearnBanner>
             <Container className="p-5">
                 <Row className="gx-5">
-                    <h2 className="mb-4">What Is Competitive Programming?</h2>
+                    <h1 className="mb-4">What Is Competitive Programming?</h1>
                     <Col>
                         <div className="window">
                             <div className="top">
@@ -118,7 +130,7 @@ export default function Learn() {
                         </p>
                     </Col>
                 </Row>
-                <h2 className="my-4">Getting Started</h2>
+                <h1 className="my-4">Getting Started</h1>
                 <h5>
                     <strong>Choosing the Right Editor</strong>
                 </h5>
@@ -200,7 +212,7 @@ export default function Learn() {
                         C++
                     </Button>
                 </div>
-                <div className="codeBlock"> 
+                <div className="codeBlock">
                     <CodeBlock
                         text={stdinCode[language]}
                         language={language}
@@ -216,7 +228,7 @@ export default function Learn() {
                     solving a problem.
                 </p>
                 <Row>
-                    <h2 className="mt-4">Resources</h2>
+                    <h1 className="mt-4">Resources</h1>
                     <Col>
                         <Card >
                             <Card.Header>Books</Card.Header>

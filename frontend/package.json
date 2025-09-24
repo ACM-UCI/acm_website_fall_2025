@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://acm-uci.org/acm_website_fall_2025/",
+  "homepage": "https://Citralyn.github.io/acm_website_fall_2025/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

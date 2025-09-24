@@ -37,16 +37,6 @@ export default defineType({
       title: 'Solution',
     }),
     defineField({
-      name: 'percentagePassed',
-      type: 'number',
-      title: 'Percentage Passed on LeetCode',
-      validation: (Rule) => Rule
-        .min(0)
-        .max(100)
-        .precision(1)
-        .required(),
-    }),
-    defineField({
       name: 'problemNumber',
       type: 'number',
       title: 'Problem Number'

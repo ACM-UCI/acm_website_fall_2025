@@ -1,6 +1,8 @@
 import Carousel from 'react-bootstrap/Carousel';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useLocation } from 'react-router-dom';
+import { useEffect } from "react";
 
 import "../scss/global.scss"
 
@@ -11,11 +13,11 @@ let compete_banner_main_header = "Achieve fame and victory by competing at ICPC"
 let compete_banner_sub_header = "Fame and victory not guaranteed. FUN is though!";
 
 return (
-  <div className="compete_banner_wrapper d-flex justify-content-center align-items-center">
+  <div id="top" className="compete_banner_wrapper d-flex justify-content-center align-items-center">
     <Row className="align-items-center">
       <Col xs={12} md={8} className="text-left">
-        <h1 className="font-size-10">{compete_banner_main_header}</h1>
-        <h1 className="font-size-6">{compete_banner_sub_header}</h1>
+        <h1 className="static-font-size-10">{compete_banner_main_header}</h1>
+        <h1 className="static-font-size-6">{compete_banner_sub_header}</h1>
       </Col>
       <Col xs={12} md={4} className="d-flex justify-content-center">
         <img src={compete_doodle} className="subpage_banner_image"></img>
@@ -34,7 +36,7 @@ function WhatIsICPC() {
     <div className="icpc_wrapper">
       <h1 className="font-size-10">What is ICPC?</h1>
       <div className="icpc_desc_wrapper">
-        <h1 className="font-size-3">{icpc_description}</h1>
+        <h1 className="custom_paragraph_font2 font-size-3">{icpc_description}</h1>
       </div>
     </div>
   )
@@ -53,7 +55,7 @@ function Involvement() {
         </Col>
         <Col xs={12} md={4} className="text-start">
         <div className="rounded icpc_involve_desc_wrapper">
-          <h1 className="font-size-3">{involvement_description}</h1>
+          <h1 className=" custom_paragraph_font2 font-size-3">{involvement_description}</h1>
         </div>
         </Col>
       </Row>
@@ -72,8 +74,8 @@ function CodeforcesShoutOut() {
   return (
     <div className="codeforces_shoutout_wrapper">
       <h1 className="font-size-6">Heard of Codeforces?</h1>
-      <h1 className="font-size-3">{codeforces_description}</h1>
-      <h1 className="font-size-3">{codeforces_ratings}</h1>
+      <h1 className="custom_paragraph_font2 font-size-3">{codeforces_description}</h1>
+      <h1 className="custom_paragraph_font2 font-size-3">{codeforces_ratings}</h1>
       <img src={codeforces_image} className='codeforces_image'></img>
     </div>
   )
@@ -85,7 +87,7 @@ function ICS80ShoutOut() {
   return (
     <div className="ics80_wrapper">
       <h1 className="font-size-6">Heard of ICS 80?</h1>
-      <h1 className="font-size-3">{ics80_description}</h1>
+      <h1 className=" custom_paragraph_font2 font-size-3">{ics80_description}</h1>
     </div>
   )
 }
@@ -95,7 +97,7 @@ function NotSatisfied() {
   return (
     <div className="not_satisfied_wrapper">
       <h1 className="font-size-6">Still Not Satisified?</h1>
-      <h1 className="font-size-3">Check out our <a href={import.meta.env.BASE_URL + "/#learn"}>learn</a> tab for additional resources and our <a href={import.meta.env.BASE_URL + "/#practice"}>practice</a> tab for presentations and practice problems!</h1>
+      <h1 className=" custom_paragraph_font2 font-size-3">Check out our <a href={import.meta.env.BASE_URL + "/#learn" + "#top"}>learn</a> tab for additional resources and our <a href={import.meta.env.BASE_URL + "/#practice" + "#top"}>practice</a> tab for presentations and practice problems!</h1>
     </div>
   );
 
@@ -109,11 +111,11 @@ function HallOfChampions() {
   return (
     <div className="hall_of_champions_wrapper">
       <h1 className="font-size-10">Hall of Champions</h1>
-      <h1 className="font-size-3">{hall_of_champions_blurb}</h1>
+      <h1 className="custom_paragraph_font2 font-size-3">{hall_of_champions_blurb}</h1>
       <div className="hoc_carousel_wrapper">
       <Row className="align-items-center">
         <Col xs={12} md={9} className="d-flex justify-content-center">
-          <Carousel>
+          <Carousel className="hoc_carousel">
                         <Carousel.Item>
               <img
                 src={import.meta.env.BASE_URL + "/compete/hall_of_champions/icpc00.jpg"}
@@ -170,10 +172,10 @@ function HallOfChampions() {
             <h1 className="font-size-4">Some of our more recent past champions include:</h1>
             <ul>
               <li>
-                Jerry Li (retired)
+                Jerry Li (graduated)
               </li>
               <li>
-                Thomas Neil (retired)
+                Thomas Neil (graduated)
               </li>
               <li>
                 Elijah Huang (4th year)
@@ -191,13 +193,13 @@ function AdditionalResources() {
   return (
     <div className='additional_resources_wrapper'>
       <h1 className="font-size-6">Additional Resources</h1>
-      <h1 className="font-size-3">ICPC Main Website:&nbsp;
+      <h1 className="custom_paragraph_font2 font-size-3">ICPC Main Website:&nbsp;
         <a href="https://icpc.global">https://icpc.global</a>
       </h1>
-      <h1 className="font-size-3">Past ICPC Problems:&nbsp;
+      <h1 className="custom_paragraph_font2 font-size-3">Past ICPC Problems:&nbsp;
         <a href="https://icpc.global/worldfinals/past-problems">https://icpc.global/worldfinals/past-problems</a>
       </h1>
-      <h1 className="font-size-3">2023 World Finals Article:&nbsp;
+      <h1 className="custom_paragraph_font2 font-size-3">2023 World Finals Article:&nbsp;
         <a href="https://ics.uci.edu/2023/06/23/uc-irvine-to-compete-at-world-finals-of-the-international-collegiate-programming-contest/">https://ics.uci.edu/2023/06/23/uc-irvine-to-compete-at-world-finals-of-the-international-collegiate-programming-contest/ </a>
       </h1>
     </div>
@@ -207,6 +209,17 @@ function AdditionalResources() {
 
 
 export default function Compete() {
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.hash) {
+            const targetElement = document.querySelector(location.hash);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, [location]);
+
   return (
     <div>
       <CompeteBanner></CompeteBanner>

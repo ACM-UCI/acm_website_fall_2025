@@ -1,4 +1,7 @@
 import React from 'react';
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import SpinningImage from '../extra/SpinningImage';
 
 
 import "../scss/global.scss"
@@ -13,12 +16,14 @@ function TopBanner() {
   return (
     <div className="banner_header_wrapper">
       {top_banner_images.map((image: string, index: number) => (
-        <img key={index} src={import.meta.env.BASE_URL + image} className="top_banner_image" />
+        <SpinningImage key={index} src={import.meta.env.BASE_URL + image} />
+       
       ))}
     </div>
   );
 }
 
+ //<img key={index} src={import.meta.env.BASE_URL + image} className="top_banner_image" />
 function WhatIsACM() {
   let what_is_acm = "What Is ACM?"
   let acm_short_description = "ACM@UCI is UCI’s official competitive programming club on campus."
@@ -27,22 +32,36 @@ function WhatIsACM() {
   let acm_with_balloons = import.meta.env.BASE_URL + "/home/what_is_acm/acm_balloons_doodle.png"
 
   return (
-    <div className="what_is_acm_wrapper shadow rounded">
+<div className="custom_font what_is_acm_wrapper shadow rounded">
+  <Row className="align-items-center">
+    {/* Title always on top */}
+    <Col xs={12} className="order-1 text-center text-md-start">
+      <h1 className="font-size-14 what_is_acm_title">{what_is_acm}</h1>
+    </Col>
+
+    {/* Image (on mobile: comes second) */}
+    <Col xs={12} md={6} className="order-2 order-md-2 d-flex justify-content-center">
+      <img
+        src={acm_with_balloons}
+        className="what_is_acm_image img-fluid"
+        alt="ACM with balloons"
+      />
+    </Col>
+
+    {/* Rest of text (on mobile: comes after image) */}
+    <Col xs={12} md={6} className="order-3 order-md-1 text-md-start">
       <div className="what_is_acm_text">
-        <h1 className="font-size-16">{what_is_acm}</h1>
         <div style={{ height: "4vh" }}></div>
         <h1 className="font-size-6">{acm_short_description}</h1>
         <hr />
         <h1 className="font-size-6">{acm_meeting_time_loc}</h1>
         <div style={{ height: "8vh" }}></div>
       </div>
+    </Col>
+  </Row>
+</div>
 
-      <img
-        src={acm_with_balloons}
-        className="what_is_acm_image"
-        alt="ACM with balloons"
-      />
-    </div>
+
 
   );
 }
@@ -80,12 +99,12 @@ function MissionStatement() {
 
   // can have mission statement (and other interchable text) be defined and imported from a messages file
   let our_mission = "OUR MISSION"
-  let mission_statement = "ACM@UCI is UCI's official competitive programming club, where coders of all kinds — those passionate about competitive programming, trying to get through technical interviews, or hoping to apply what they learn in their algorithms class — come together and solve problems! Each week, we host informative presentations on various topics in data structures and algorithms, including the divide and conquer paradigm, dynamic programming, and greedy algorithms. We also hold practice sessions on another day of the week after the session so members can internalize the concepts we cover. Sometimes, we host friendly programming contests for our members as well!"
+  let mission_statement = "ACM@UCI is UCI's official competitive programming club, where coders of all kinds — those passionate about competitive programming, trying to get through technical interviews, or hoping to apply what they learn in their algorithms class — come together and solve problems! Each week, we host informative presentations on various topics in data structures and algorithms, including the divide and conquer paradigm, dynamic programming, and greedy algorithms. We also hold practice sessions so that members can internalize the concepts we cover. Sometimes, we host friendly programming contests for our members as well!"
 
   return (
     <div className="mission_statement_wrapper">
       <h1 className="font-size-12">{our_mission}</h1>
-      <h1 className="font-size-3">{mission_statement}</h1>
+      <h1 className="custom_paragraph_font2 font-size-3">{mission_statement}</h1>
     </div>
   )
 }
@@ -105,43 +124,59 @@ function ClubPreview() {
   let compete_text = "Every year, ACM takes its top members to participate in the International Collegiate Programming Competition (ICPC). Tryouts open in the Fall."
 
   return (
-    <div className="club_preview_wrapper">
-      <h1 className="font-size-8 text-start">{club_preview_header}</h1>
+     <div className="club_preview_wrapper">
+  <h1 className="font-size-8 text-start">{club_preview_header}</h1>
 
-      {/* Newcomers */}
-      <div className="cp_newcomer_wrapper rounded">
-        <h1 className="font-size-8 text-start">Newcomers</h1>
-        <div className="cp_section">
-          <img src={newcomers_img} className="img-fluid" alt="Newcomers" />
-          <div className="cp_text text-end font-size-4">
-            {newcomers_text} <a href={import.meta.env.BASE_URL + "/#learn"}>LEARN MORE</a>
-          </div>
+  {/* Newcomers */}
+  <div className="cp_newcomer_wrapper rounded">
+    <h1 className="font-size-8 text-start">Newcomers</h1>
+    <Row className="align-items-center cp_section">
+      <Col xs={12} md={4}>
+        <img src={newcomers_img} className="img-fluid" alt="Newcomers" />
+      </Col>
+      <Col xs={12} md={8} className="text-end">
+        <div className="cp_text font-size-4">
+          <h1 className="font-size-4 custom_paragraph_font">{newcomers_text}&nbsp;</h1>
+          <a href={import.meta.env.BASE_URL + "/#learn" + "#top"}>LEARN MORE</a>
         </div>
-      </div>
+      </Col>
+    </Row>
+  </div>
 
-      {/* Practice */}
-      <div className="cp_practice_wrapper rounded">
-        <h1 className="font-size-8 text-start">Practice</h1>
-        <div className="cp_section">
-          <div className="cp_text text-start font-size-4">
-            {practice_text} <a href={import.meta.env.BASE_URL + "/#practice"}>READ MORE</a>
-          </div>
-          <img src={leetcode_img} className="img-fluid" alt="LeetCode" />
-          <img src={codeforces_img} className="img-fluid" alt="Codeforces" />
+  {/* Practice */}
+  <div className="cp_practice_wrapper rounded">
+    <h1 className="font-size-8 text-start">Practice</h1>
+    <Row className="align-items-center cp_section">
+      <Col xs={12} md={8} className="text-start">
+        <div className="cp_text font-size-4">
+          <h1 className="custom_paragraph_font font-size-4">{practice_text}&nbsp;</h1>
+          <a href={import.meta.env.BASE_URL + "/#practice" + "#top"}>READ MORE</a>
         </div>
-      </div>
+      </Col>
+      <Col xs={12} md={4} className="d-flex justify-content-center">
+        <img src={leetcode_img} className="img-fluid me-2 practice-img" alt="LeetCode" />
+        <img src={codeforces_img} className="img-fluid practice-img" alt="Codeforces" />
+      </Col>
+    </Row>
+  </div>
 
-      {/* Compete */}
-      <div className="cp_compete_wrapper rounded">
-        <h1 className="font-size-8 text-start">Compete</h1>
-        <div className="cp_section">
-          <img src={compete_img} className="img-fluid" alt="Compete" />
-          <div className="cp_text text-end font-size-4">
-            {compete_text} <a href={import.meta.env.BASE_URL + "/#compete"}>SEE MORE</a>
-          </div>
+  {/* Compete */}
+  <div className="cp_compete_wrapper rounded">
+    <h1 className="font-size-8 text-start">Compete</h1>
+    <Row className="align-items-center cp_section">
+      <Col xs={12} md={4}>
+        <img src={compete_img} className="compete-img img-fluid" alt="Compete" />
+      </Col>
+      <Col xs={12} md={8} className="text-end">
+        <div className="cp_text font-size-4">
+          <h1 className="custom_paragraph_font font-size-4">{compete_text}&nbsp;</h1>
+          <a href={import.meta.env.BASE_URL + "/#compete" + "#top"}>SEE MORE</a>
         </div>
-      </div>
-    </div>
+      </Col>
+    </Row>
+  </div>
+</div>
+
   );
 
 
@@ -154,16 +189,18 @@ function OurTeam() {
   let team_symbol = import.meta.env.BASE_URL + "/home/our_team/team_icon.jpg"
 
   return (
-    <div className="our_team_wrapper">
-      <h1 className="font-size-8">{our_team}</h1>
-      <div className="our_team_row">
-        <img src={team_symbol} alt="" />
-        <h1 className="font-size-4">
-          {team_shoutout} <a href={import.meta.env.BASE_URL + "/#board"}>VIEW BOARD</a>
-        </h1>
-        <img src={team_symbol} alt="" />
-      </div>
-    </div>
+<div className="our_team_wrapper">
+  <h1 className="font-size-8">{our_team}</h1>
+  <div className="our_team_row">
+    <img src={team_symbol} alt="" className="team_symbol" />
+    <h1 className="font-size-4">
+      {team_shoutout}{" "}
+      <a href={import.meta.env.BASE_URL + "/#board" + "#top"}>VIEW BOARD</a>
+    </h1>
+    <img src={team_symbol} alt="" className="team_symbol" />
+  </div>
+</div>
+
 
   );
 }

@@ -11,7 +11,6 @@ export interface Problem {
       url: string;
     };
   };
-  percentagePassed: number;
   problemNumber: number;
 }
 
